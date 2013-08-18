@@ -14,6 +14,8 @@
 
 @implementation ViewController
 
+@synthesize listData;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -21,6 +23,9 @@
     
     _mCareerTextField.placeholder = @"職務名稱";
     _mLocationField.placeholder = @"所在地區";
+    
+    listData = [[NSArray alloc] initWithObjects:@"a",@"b",@"c", nil];
+    _mTableView.hidden = YES;
     
 }
 
@@ -31,5 +36,65 @@
 }
 
 - (IBAction)onButtonClicked:(id)sender {
+    
 }
+
+- (IBAction)onTextChanged:(id)sender {
+    
+    NSString *myUrlString = @"http://54.251.103.118/MobileJobSearchAPI/FreeKeyReturnJobCat.do";
+    NSString *body =  [NSString stringWithFormat:@"jobTitle=%@", _mCareerTextField.text];
+    NSURL *myUrl = [NSURL URLWithString:myUrlString];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:myUrl];
+    [request setTimeoutInterval:30.0f];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"json = %@", ret);
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
+    
+    listData = dic.allKeys;
+    [_mTableView reloadData];
+    
+    if (_mCareerTextField.text.length == 0) {
+        NSLog(@"0");
+        _mTableView.hidden = YES;
+    } else {
+        if (listData.count == 0) {
+            _mTableView.hidden = YES;
+        } else {
+            _mTableView.hidden = NO;
+        }
+    }
+
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    NSLog(@"num of rows");
+    return [listData count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *tableIdentifier = @"Simple table";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableIdentifier];
+    
+    if(cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableIdentifier];
+    }
+    
+    NSUInteger row = [indexPath row];
+    cell.textLabel.text = [listData objectAtIndex:row];
+    
+    return cell;
+}
+
+
 @end
