@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultViewController : UIViewController
+@interface ResultViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) NSString *mCareer;
+@property (weak, nonatomic) NSString *mLocation;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *mBackButton;
+@property (weak, nonatomic) IBOutlet UITableView *mTableView;
+@property (strong, nonatomic) NSMutableArray *mResults;
+- (IBAction)onBackButtonPressed:(id)sender;
 
 @end

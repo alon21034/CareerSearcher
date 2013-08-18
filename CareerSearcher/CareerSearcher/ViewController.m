@@ -25,7 +25,6 @@
     _mCareerTextField.placeholder = @"職務名稱";
     _mLocationField.placeholder = @"所在地區";
     
-    listData = [[NSArray alloc] initWithObjects:@"a",@"b",@"c", nil];
     _mTableView.hidden = YES;
     
 }
@@ -39,6 +38,8 @@
 #pragma mark Button
 - (IBAction)onButtonClicked:(id)sender {
     ResultViewController *view= [self.storyboard instantiateViewControllerWithIdentifier:@"result_view"];
+    view.mCareer = _mCareerTextField.text;
+    view.mLocation = _mLocationField.text;
     [self presentViewController:view animated:YES completion:nil];
 }
 
