@@ -23,6 +23,7 @@
 		3F6DD2CE17C0B6C3007C34FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DD2A917C0B6C3007C34FA /* Foundation.framework */; };
 		3F6DD2D617C0B6C3007C34FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2D417C0B6C3007C34FA /* InfoPlist.strings */; };
 		3F6DD2D917C0B6C3007C34FA /* CareerSearcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2D817C0B6C3007C34FA /* CareerSearcherTests.m */; };
+		3F6DD2E817C0BA18007C34FA /* AutocompletionTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2E717C0BA18007C34FA /* AutocompletionTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		3F6DD2D517C0B6C3007C34FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F6DD2D717C0B6C3007C34FA /* CareerSearcherTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CareerSearcherTests.h; sourceTree = "<group>"; };
 		3F6DD2D817C0B6C3007C34FA /* CareerSearcherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CareerSearcherTests.m; sourceTree = "<group>"; };
+		3F6DD2E617C0BA18007C34FA /* AutocompletionTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompletionTableView.h; sourceTree = "<group>"; };
+		3F6DD2E717C0BA18007C34FA /* AutocompletionTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompletionTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +120,13 @@
 		3F6DD2AD17C0B6C3007C34FA /* CareerSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				3F6DD2E617C0BA18007C34FA /* AutocompletionTableView.h */,
+				3F6DD2E717C0BA18007C34FA /* AutocompletionTableView.m */,
 				3F6DD2B617C0B6C3007C34FA /* AppDelegate.h */,
-				3F6DD2B717C0B6C3007C34FA /* AppDelegate.m */,
-				3F6DD2BF17C0B6C3007C34FA /* MainStoryboard.storyboard */,
 				3F6DD2C217C0B6C3007C34FA /* ViewController.h */,
+				3F6DD2B717C0B6C3007C34FA /* AppDelegate.m */,
 				3F6DD2C317C0B6C3007C34FA /* ViewController.m */,
+				3F6DD2BF17C0B6C3007C34FA /* MainStoryboard.storyboard */,
 				3F6DD2AE17C0B6C3007C34FA /* Supporting Files */,
 			);
 			path = CareerSearcher;
@@ -273,6 +278,7 @@
 				3F6DD2B417C0B6C3007C34FA /* main.m in Sources */,
 				3F6DD2B817C0B6C3007C34FA /* AppDelegate.m in Sources */,
 				3F6DD2C417C0B6C3007C34FA /* ViewController.m in Sources */,
+				3F6DD2E817C0BA18007C34FA /* AutocompletionTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
