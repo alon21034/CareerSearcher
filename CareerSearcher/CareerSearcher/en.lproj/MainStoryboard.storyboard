@@ -108,7 +108,7 @@
                                                 <action selector="onBackButtonPressed:" destination="ylC-Yu-HS6" id="oE6-BX-Ihq"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="∙∙∙" id="gFM-ja-JlW">
+                                        <barButtonItem key="rightBarButtonItem" title="+" id="gFM-ja-JlW">
                                             <connections>
                                                 <action selector="onNextButtonPressed:" destination="ylC-Yu-HS6" id="EkC-dj-gIF"/>
                                             </connections>
@@ -123,6 +123,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="ylC-Yu-HS6" id="vXy-Lq-gdL"/>
+                                    <outlet property="delegate" destination="ylC-Yu-HS6" id="UcO-VE-fud"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -146,6 +147,38 @@
             </objects>
             <point key="canvasLocation" x="682" y="203"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="O6C-Wl-zq3">
+            <objects>
+                <viewController storyboardIdentifier="search_view" id="9vM-1C-X6Z" customClass="SearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fnJ-Dl-uEk">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXc-0X-Y42">
+                                <items>
+                                    <navigationItem title="104人力銀行" id="u1i-rv-bOu">
+                                        <barButtonItem key="rightBarButtonItem" title="完成" id="y8v-KB-gGj">
+                                            <connections>
+                                                <action selector="onFinishedButtonPressed:" destination="9vM-1C-X6Z" id="Fku-zy-mEP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uXc-0X-Y42" firstAttribute="top" secondItem="fnJ-Dl-uEk" secondAttribute="top" constant="-5" id="SnB-T0-AIs"/>
+                            <constraint firstItem="uXc-0X-Y42" firstAttribute="leading" secondItem="fnJ-Dl-uEk" secondAttribute="leading" type="default" id="URv-xh-TCf"/>
+                            <constraint firstItem="uXc-0X-Y42" firstAttribute="trailing" secondItem="fnJ-Dl-uEk" secondAttribute="trailing" type="default" id="V0x-Yw-IcH"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7VO-96-4Bg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1203" y="-170"/>
+        </scene>
         <!--Job Detail View Controller-->
         <scene sceneID="ECn-ib-cIm">
             <objects>
@@ -162,26 +195,53 @@
                                                 <action selector="onBackButtonPressed:" destination="ygc-Zf-Sg5" id="InY-Vw-t7a"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="∙∙∙" id="I4f-TN-Z4w"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jME-ep-49u">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="JWK-K3-Wpk"/>
+                                    <constraint firstAttribute="height" constant="80" id="vKn-Jy-jx0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="uQJ-OW-LEJ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="372" id="2ii-h7-Twb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="uQJ-OW-LEJ" firstAttribute="leading" secondItem="GgS-i1-ANv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="1HF-gS-lCX"/>
                             <constraint firstItem="Lgg-ry-9mH" firstAttribute="leading" secondItem="GgS-i1-ANv" secondAttribute="leading" type="default" id="RH5-JB-69a"/>
                             <constraint firstItem="Lgg-ry-9mH" firstAttribute="trailing" secondItem="GgS-i1-ANv" secondAttribute="trailing" type="default" id="TkY-VM-bA7"/>
+                            <constraint firstAttribute="bottom" secondItem="uQJ-OW-LEJ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="UzA-OO-QJo"/>
                             <constraint firstItem="Lgg-ry-9mH" firstAttribute="top" secondItem="GgS-i1-ANv" secondAttribute="top" type="default" id="a3f-yG-4L3"/>
+                            <constraint firstAttribute="trailing" secondItem="uQJ-OW-LEJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aCE-q7-Av7"/>
+                            <constraint firstItem="jME-ep-49u" firstAttribute="leading" secondItem="GgS-i1-ANv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bZp-Kl-eDQ"/>
+                            <constraint firstItem="jME-ep-49u" firstAttribute="top" secondItem="GgS-i1-ANv" secondAttribute="top" constant="60" id="ogm-AU-jCF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mLabel" destination="uQJ-OW-LEJ" id="XX2-DR-Z5P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRf-rH-D3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206" y="-177"/>
+            <point key="canvasLocation" x="1202" y="561"/>
         </scene>
     </scenes>
     <classes>
         <class className="JobDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/JobDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onBackButtonPressed:"/>
+                <relationship kind="outlet" name="mLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -194,6 +254,12 @@
                 <relationship kind="outlet" name="mBackButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="mNextButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="mTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onFinishedButtonPressed:"/>
             </relationships>
         </class>
         <class className="ViewController" superclassName="UIViewController">

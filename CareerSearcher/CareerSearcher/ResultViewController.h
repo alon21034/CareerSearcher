@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 @property (strong, nonatomic) NSMutableArray *mResults;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mNextButton;
+@property (weak, nonatomic) NSArray *mJobList;
+@property (strong, nonatomic) NSData *data;
+@property (strong, nonatomic) NSString *ret;
 - (IBAction)onBackButtonPressed:(id)sender;
 - (IBAction)onNextButtonPressed:(id)sender;
 

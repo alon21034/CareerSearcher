@@ -8,6 +8,7 @@
 
 #import "ResultViewController.h"
 #import "JobDetailViewController.h"
+#import "SearchViewController.h"
 
 @interface ResultViewController ()
 
@@ -16,6 +17,9 @@
 @implementation ResultViewController
 
 @synthesize mResults;
+@synthesize mJobList;
+@synthesize ret;
+@synthesize data;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,14 +47,11 @@
     
     NSError *error = nil;
     NSHTTPURLResponse *response = nil;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"json = %@", ret);
+    mJobList = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
     
-    NSArray *jobList = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
-    
-    for (NSDictionary *item in jobList) {
+    for (NSDictionary *item in mJobList) {
         NSLog(@"Item: %@", [item valueForKey:@"JOB"]);
         [mResults addObject:[item valueForKey:@"JOB"]];
     }
@@ -69,8 +70,8 @@
 }
 
 - (IBAction)onNextButtonPressed:(id)sender {
-    JobDetailViewController *jobDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"job_detail"];
-    [self presentViewController:jobDetail animated:YES completion:nil];
+    SearchViewController *searchView = [self.storyboard instantiateViewControllerWithIdentifier:@"search_view"];
+    [self presentViewController:searchView animated:YES completion:nil];
 }
 
 # pragma mark TableView
@@ -99,6 +100,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%ld",(long)indexPath.row);
+    JobDetailViewController *jobView = [self.storyboard instantiateViewControllerWithIdentifier:@"job_detail"];
+    NSLog(@"pass: %@", [mJobList objectAtIndex:indexPath.row]);
+    jobView.mJobIndex = indexPath.row;
+    jobView.mJobData = data;
+    [self presentViewController:jobView animated:YES completion:nil];
 }
 
 @end
