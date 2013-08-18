@@ -96,5 +96,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%ld",(long)indexPath.row);
+    [_mCareerTextField setText:[listData objectAtIndex:indexPath.row]];
+    _mTableView.hidden = YES;
+}
 
 @end
