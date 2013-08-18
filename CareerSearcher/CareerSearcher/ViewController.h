@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *mCareerTextField;
+@property (weak, nonatomic) IBOutlet UITextField *mLocationField;
+@property (weak, nonatomic) IBOutlet UIButton *mButton;
+- (IBAction)onButtonClicked:(id)sender;
 
 @end
