@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mBackButton;
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 @property (strong, nonatomic) NSMutableArray *mResults;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *mNextButton;
 - (IBAction)onBackButtonPressed:(id)sender;
+- (IBAction)onNextButtonPressed:(id)sender;
 
 @end

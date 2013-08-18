@@ -7,6 +7,7 @@
 //
 
 #import "ResultViewController.h"
+#import "JobDetailViewController.h"
 
 @interface ResultViewController ()
 
@@ -64,7 +65,12 @@
 }
 
 - (IBAction)onBackButtonPressed:(id)sender {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)onNextButtonPressed:(id)sender {
+    JobDetailViewController *jobDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"job_detail"];
+    [self presentViewController:jobDetail animated:YES completion:nil];
 }
 
 # pragma mark TableView
