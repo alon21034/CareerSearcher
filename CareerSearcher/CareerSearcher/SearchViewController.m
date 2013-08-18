@@ -14,6 +14,9 @@
 
 @implementation SearchViewController
 
+@synthesize searchTermStr1;
+@synthesize searchTermStr2;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +30,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    _mCareerTextField.placeholder = @"職務名稱";
+    _mLocationTextField.placeholder = @"所在地區";
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,5 +43,25 @@
 
 - (IBAction)onFinishedButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)onAddButtonClicked:(id)sender {
+    
+    if ([searchTermStr1 length] == 0 && [searchTermStr2 length] == 0) {
+        searchTermStr1 = _mCareerTextField.text;
+    } else if ([searchTermStr2 length] == 0) {
+        searchTermStr2 = _mCareerTextField.text;
+    } else {
+        // do nothing
+    }
+    
+    [self updateSearchTerm];
+}
+
+- (void) updateSearchTerm {
+    
+    _mCareerTextField.text = @"";
+    _mLocationTextField.text = @"";
+    _mSearchTerm1.text = searchTermStr1;
+    _mSearchTerm2.text = searchTermStr2;
 }
 @end
