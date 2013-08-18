@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ResultViewController.h"
 
 @interface ViewController ()
 
@@ -36,7 +37,8 @@
 }
 
 - (IBAction)onButtonClicked:(id)sender {
-    
+    ResultViewController *view= [self.storyboard instantiateViewControllerWithIdentifier:@"result_view"];
+    [self presentViewController:view animated:YES completion:nil];
 }
 
 - (IBAction)onTextChanged:(id)sender {
