@@ -36,11 +36,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Button
 - (IBAction)onButtonClicked:(id)sender {
     ResultViewController *view= [self.storyboard instantiateViewControllerWithIdentifier:@"result_view"];
     [self presentViewController:view animated:YES completion:nil];
 }
 
+#pragma mark TextField
 - (IBAction)onTextChanged:(id)sender {
     
     NSString *myUrlString = @"http://54.251.103.118/MobileJobSearchAPI/FreeKeyReturnJobCat.do";
@@ -76,6 +78,7 @@
 
 }
 
+# pragma mark TableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     NSLog(@"num of rows");
