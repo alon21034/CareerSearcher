@@ -23,6 +23,7 @@
 @implementation ResultViewController
 
 @synthesize mScrollView;
+@synthesize mPageControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -106,7 +107,7 @@
     // switch the indicator when more than 50% of the previous/next page is visible
     CGFloat width = CGRectGetWidth(self.mScrollView.frame);
     NSUInteger page = floor((self.mScrollView.contentOffset.x - width / 2) / width) + 1;
-    //self.pageControl.currentPage = page;
+    self.mPageControl.currentPage = page;
     
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
     [self loadScrollViewWithPage:page - 1];
@@ -118,18 +119,18 @@
 
 - (void)gotoPage:(BOOL)animated
 {
-//    NSInteger page = self.pageControl.currentPage;
-//    
-//    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-//    [self loadScrollViewWithPage:page - 1];
-//    [self loadScrollViewWithPage:page];
-//    [self loadScrollViewWithPage:page + 1];
-//    
-//	// update the scroll view to the appropriate page
-//    CGRect bounds = self.mScrollView.bounds;
-//    bounds.origin.x = CGRectGetWidth(bounds) * page;
-//    bounds.origin.y = 0;
-//    [self.mScrollView scrollRectToVisible:bounds animated:animated];
+    NSInteger page = self.mPageControl.currentPage;
+    
+    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+    [self loadScrollViewWithPage:page - 1];
+    [self loadScrollViewWithPage:page];
+    [self loadScrollViewWithPage:page + 1];
+    
+	// update the scroll view to the appropriate page
+    CGRect bounds = self.mScrollView.bounds;
+    bounds.origin.x = pageWidth * page;
+    bounds.origin.y = 0;
+    [self.mScrollView scrollRectToVisible:bounds animated:animated];
 }
 
 - (IBAction)changePage:(id)sender
@@ -148,4 +149,8 @@
     [self presentViewController:searchView animated:YES completion:nil];
 }
 
+- (IBAction)onTabButtonClicked:(id)sender {
+    [mPageControl setCurrentPage:[sender tag]];
+    [self gotoPage:YES];
+}
 @end

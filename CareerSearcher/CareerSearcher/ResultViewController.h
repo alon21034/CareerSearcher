@@ -22,5 +22,13 @@
 #pragma mark ui_items
 @property (strong, nonatomic) NSMutableArray *mControllersArray;
 @property (strong, nonatomic) IBOutlet UIScrollView *mScrollView;
+@property (strong, nonatomic) IBOutlet UIPageControl *mPageControl;
+
+#pragma mark tab_button
+@property (strong, nonatomic) IBOutlet UIButton *mButton1;
+@property (strong, nonatomic) IBOutlet UIButton *mButton2;
+@property (strong, nonatomic) IBOutlet UIButton *mButton3;
+
+- (IBAction)onTabButtonClicked:(id)sender;
 
 @end
