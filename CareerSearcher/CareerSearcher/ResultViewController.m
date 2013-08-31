@@ -9,17 +9,18 @@
 #import "ResultViewController.h"
 #import "JobDetailViewController.h"
 #import "SearchViewController.h"
+#import "SearchContentViewController.h"
 
 @interface ResultViewController ()
+{
+    int pageNum;
+}
 
 @end
 
 @implementation ResultViewController
 
-@synthesize mResults;
-@synthesize mJobList;
-@synthesize ret;
-@synthesize data;
+@synthesize mScrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,28 +36,57 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    mResults = [[NSMutableArray alloc] init];
-    NSString *myUrlString = @"http://54.251.103.118/MobileJobSearchAPI/JobCatAreaReturnJob.do";
-    NSString *body =  [NSString stringWithFormat:@"jobTitle=%@&area=%@", _mCareer, _mLocation];
-    NSURL *myUrl = [NSURL URLWithString:myUrlString];
+    pageNum = 4;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:myUrl];
-    [request setTimeoutInterval:30.0f];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    // set scroll view
+    NSMutableArray *controllers = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 0; i < pageNum; i++)
+    {
+		[controllers addObject:[NSNull null]];
+    }
+    self.mControllersArray = controllers;
     
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    // a page is the width of the scroll view
+    self.mScrollView.pagingEnabled = YES;
+    self.mScrollView.contentSize =
+        CGSizeMake(CGRectGetWidth(self.mScrollView.frame) * pageNum, CGRectGetHeight(self.mScrollView.frame));
+    self.mScrollView.showsHorizontalScrollIndicator = NO;
+    self.mScrollView.showsVerticalScrollIndicator = NO;
+    self.mScrollView.scrollsToTop = NO;
+    self.mScrollView.delegate = self;
     
-    mJobList = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
+    [self loadScrollViewWithPage:0];
+    [self loadScrollViewWithPage:1];
     
-    for (NSDictionary *item in mJobList) {
-        NSLog(@"Item: %@", [item valueForKey:@"JOB"]);
-        [mResults addObject:[item valueForKey:@"JOB"]];
+}
+
+- (void)loadScrollViewWithPage:(NSUInteger)page
+{
+    //if (page >= self.contentList.count)
+    //    return;
+    
+    NSLog(@"load page: %d", page);
+    
+    // replace the placeholder if necessary
+    SearchContentViewController *controller = [self.mControllersArray objectAtIndex:page];
+    if ((NSNull *)controller == [NSNull null])
+    {
+        controller = [[SearchContentViewController alloc] initWithPageNumber:page];
+        [self.mControllersArray replaceObjectAtIndex:page withObject:controller];
     }
     
-    [_mTableView reloadData];
+    // add the controller's view to the scroll view
+    if (controller.view.superview == nil)
+    {
+        CGRect frame = self.mScrollView.frame;
+        frame.origin.x = CGRectGetWidth(frame) * page;
+        frame.origin.y = 0;
+        controller.view.frame = frame;
+        
+        [self addChildViewController:controller];
+        [self.mScrollView addSubview:controller.view];
+        [controller didMoveToParentViewController:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,6 +95,46 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark scrollview
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    // switch the indicator when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = CGRectGetWidth(self.mScrollView.frame);
+    NSUInteger page = floor((self.mScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    //self.pageControl.currentPage = page;
+    
+    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+    [self loadScrollViewWithPage:page - 1];
+    [self loadScrollViewWithPage:page];
+    [self loadScrollViewWithPage:page + 1];
+    
+    // a possible optimization would be to unload the views+controllers which are no longer visible
+}
+
+- (void)gotoPage:(BOOL)animated
+{
+//    NSInteger page = self.pageControl.currentPage;
+//    
+//    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+//    [self loadScrollViewWithPage:page - 1];
+//    [self loadScrollViewWithPage:page];
+//    [self loadScrollViewWithPage:page + 1];
+//    
+//	// update the scroll view to the appropriate page
+//    CGRect bounds = self.mScrollView.bounds;
+//    bounds.origin.x = CGRectGetWidth(bounds) * page;
+//    bounds.origin.y = 0;
+//    [self.mScrollView scrollRectToVisible:bounds animated:animated];
+}
+
+- (IBAction)changePage:(id)sender
+{
+    [self gotoPage:YES];    // YES = animate
+}
+
+#pragma mark onClick
+
 - (IBAction)onBackButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -72,39 +142,6 @@
 - (IBAction)onNextButtonPressed:(id)sender {
     SearchViewController *searchView = [self.storyboard instantiateViewControllerWithIdentifier:@"search_view"];
     [self presentViewController:searchView animated:YES completion:nil];
-}
-
-# pragma mark TableView
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    NSLog(@"num of rows: %ld", (unsigned long)[mResults count]);
-    return [mResults count];
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *tableIdentifier = @"Simple table";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableIdentifier];
-    
-    if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableIdentifier];
-    }
-    
-    NSUInteger row = [indexPath row];
-    cell.textLabel.text = [mResults objectAtIndex:row];
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"%ld",(long)indexPath.row);
-    JobDetailViewController *jobView = [self.storyboard instantiateViewControllerWithIdentifier:@"job_detail"];
-    NSLog(@"pass: %@", [mJobList objectAtIndex:indexPath.row]);
-    jobView.mJobIndex = indexPath.row;
-    jobView.mJobData = data;
-    [self presentViewController:jobView animated:YES completion:nil];
 }
 
 @end

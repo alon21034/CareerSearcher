@@ -8,19 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface ResultViewController : UIViewController<UIScrollViewDelegate>
 
 @property (weak, nonatomic) NSString *mCareer;
 @property (weak, nonatomic) NSString *mLocation;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *mBackButton;
-@property (weak, nonatomic) IBOutlet UITableView *mTableView;
-@property (strong, nonatomic) NSMutableArray *mResults;
+#pragma mark navigation_bar
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mNextButton;
-@property (weak, nonatomic) NSArray *mJobList;
-@property (strong, nonatomic) NSData *data;
-@property (strong, nonatomic) NSString *ret;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *mBackButton;
 - (IBAction)onBackButtonPressed:(id)sender;
 - (IBAction)onNextButtonPressed:(id)sender;
+
+#pragma mark ui_items
+@property (strong, nonatomic) NSMutableArray *mControllersArray;
+@property (strong, nonatomic) IBOutlet UIScrollView *mScrollView;
 
 @end

@@ -26,6 +26,8 @@
 		3F6DD2EC17C0EC80007C34FA /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2EB17C0EC80007C34FA /* ResultViewController.m */; };
 		3F6DD2EF17C0FF08007C34FA /* JobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2EE17C0FF08007C34FA /* JobDetailViewController.m */; };
 		3F6DD2F217C10271007C34FA /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2F117C10271007C34FA /* SearchViewController.m */; };
+		611F20F817CB2CAD0065CBD2 /* SearchContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 611F20F617CB2CAD0065CBD2 /* SearchContentViewController.m */; };
+		611F20F917CB2CAD0065CBD2 /* SearchContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611F20F717CB2CAD0065CBD2 /* SearchContentViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,9 @@
 		3F6DD2EE17C0FF08007C34FA /* JobDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailViewController.m; sourceTree = "<group>"; };
 		3F6DD2F017C10271007C34FA /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		3F6DD2F117C10271007C34FA /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		611F20F517CB2CAD0065CBD2 /* SearchContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchContentViewController.h; sourceTree = "<group>"; };
+		611F20F617CB2CAD0065CBD2 /* SearchContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchContentViewController.m; sourceTree = "<group>"; };
+		611F20F717CB2CAD0065CBD2 /* SearchContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchContentViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +143,9 @@
 				3F6DD2EE17C0FF08007C34FA /* JobDetailViewController.m */,
 				3F6DD2F017C10271007C34FA /* SearchViewController.h */,
 				3F6DD2F117C10271007C34FA /* SearchViewController.m */,
+				611F20F517CB2CAD0065CBD2 /* SearchContentViewController.h */,
+				611F20F617CB2CAD0065CBD2 /* SearchContentViewController.m */,
+				611F20F717CB2CAD0065CBD2 /* SearchContentViewController.xib */,
 			);
 			path = CareerSearcher;
 			sourceTree = "<group>";
@@ -251,6 +259,7 @@
 				3F6DD2BC17C0B6C3007C34FA /* Default@2x.png in Resources */,
 				3F6DD2BE17C0B6C3007C34FA /* Default-568h@2x.png in Resources */,
 				3F6DD2C117C0B6C3007C34FA /* MainStoryboard.storyboard in Resources */,
+				611F20F917CB2CAD0065CBD2 /* SearchContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +300,7 @@
 				3F6DD2EC17C0EC80007C34FA /* ResultViewController.m in Sources */,
 				3F6DD2EF17C0FF08007C34FA /* JobDetailViewController.m in Sources */,
 				3F6DD2F217C10271007C34FA /* SearchViewController.m in Sources */,
+				611F20F817CB2CAD0065CBD2 /* SearchContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
