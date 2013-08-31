@@ -14,6 +14,8 @@
 @interface ResultViewController ()
 {
     int pageNum;
+    int pageWidth;
+    int pageHeight;
 }
 
 @end
@@ -37,6 +39,8 @@
 	// Do any additional setup after loading the view.
     
     pageNum = 4;
+    pageWidth = 280;
+    pageHeight = 420;
     
     // set scroll view
     NSMutableArray *controllers = [[NSMutableArray alloc] init];
@@ -49,7 +53,7 @@
     // a page is the width of the scroll view
     self.mScrollView.pagingEnabled = YES;
     self.mScrollView.contentSize =
-        CGSizeMake(CGRectGetWidth(self.mScrollView.frame) * pageNum, CGRectGetHeight(self.mScrollView.frame));
+        CGSizeMake(pageWidth * pageNum, pageHeight);
     self.mScrollView.showsHorizontalScrollIndicator = NO;
     self.mScrollView.showsVerticalScrollIndicator = NO;
     self.mScrollView.scrollsToTop = NO;
@@ -62,8 +66,8 @@
 
 - (void)loadScrollViewWithPage:(NSUInteger)page
 {
-    //if (page >= self.contentList.count)
-    //    return;
+    if (page >= pageNum)
+        return;
     
     NSLog(@"load page: %d", page);
     
@@ -79,7 +83,7 @@
     if (controller.view.superview == nil)
     {
         CGRect frame = self.mScrollView.frame;
-        frame.origin.x = CGRectGetWidth(frame) * page;
+        frame.origin.x = pageWidth * page;
         frame.origin.y = 0;
         controller.view.frame = frame;
         
@@ -100,8 +104,8 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     // switch the indicator when more than 50% of the previous/next page is visible
-    CGFloat pageWidth = CGRectGetWidth(self.mScrollView.frame);
-    NSUInteger page = floor((self.mScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    CGFloat width = CGRectGetWidth(self.mScrollView.frame);
+    NSUInteger page = floor((self.mScrollView.contentOffset.x - width / 2) / width) + 1;
     //self.pageControl.currentPage = page;
     
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)

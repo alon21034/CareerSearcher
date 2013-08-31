@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchContentViewController : UIViewController
+@interface SearchContentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithPageNumber:(NSUInteger)page;
 @property (strong, nonatomic) IBOutlet UILabel *mLabel;
-
+@property (strong, nonatomic) IBOutlet UITableView *mTableView;
+@property (strong, nonatomic) NSMutableArray *mListData;
 @end

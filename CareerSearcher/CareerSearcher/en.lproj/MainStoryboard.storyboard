@@ -127,18 +127,43 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pS-FM-4jo">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHK-s4-gZ8">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xL1-xe-2tN" firstAttribute="leading" secondItem="kqH-23-Xel" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="1Ky-V9-0iw"/>
+                            <constraint firstItem="EHK-s4-gZ8" firstAttribute="leading" secondItem="3pS-FM-4jo" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="3Qw-hL-jMG"/>
                             <constraint firstItem="xL1-xe-2tN" firstAttribute="top" secondItem="QqJ-aq-GAn" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5jB-2A-i5a"/>
                             <constraint firstItem="QqJ-aq-GAn" firstAttribute="leading" secondItem="kqH-23-Xel" secondAttribute="leading" constant="7" id="6RI-Lc-5QV"/>
                             <constraint firstItem="2fZ-5Z-MaT" firstAttribute="trailing" secondItem="kqH-23-Xel" secondAttribute="trailing" type="default" id="876-6o-M8v"/>
                             <constraint firstItem="2fZ-5Z-MaT" firstAttribute="top" secondItem="kqH-23-Xel" secondAttribute="top" constant="-5" id="B8n-Lb-AGJ"/>
                             <constraint firstItem="QqJ-aq-GAn" firstAttribute="top" secondItem="kqH-23-Xel" secondAttribute="top" constant="45" id="G8H-yX-ABB"/>
                             <constraint firstAttribute="trailing" secondItem="xL1-xe-2tN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="H6u-Me-Zfq"/>
+                            <constraint firstItem="3pS-FM-4jo" firstAttribute="baseline" secondItem="QqJ-aq-GAn" secondAttribute="baseline" type="default" id="K90-Ur-ODZ"/>
+                            <constraint firstItem="3pS-FM-4jo" firstAttribute="leading" secondItem="QqJ-aq-GAn" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="YCN-Oe-L47"/>
                             <constraint firstAttribute="bottom" secondItem="xL1-xe-2tN" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="aZS-Sr-XB4"/>
+                            <constraint firstItem="EHK-s4-gZ8" firstAttribute="baseline" secondItem="3pS-FM-4jo" secondAttribute="baseline" type="default" id="awn-WT-U3a"/>
                             <constraint firstItem="2fZ-5Z-MaT" firstAttribute="leading" secondItem="kqH-23-Xel" secondAttribute="leading" type="default" id="cMR-Gp-Rce"/>
+                            <constraint firstItem="xL1-xe-2tN" firstAttribute="top" secondItem="EHK-s4-gZ8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="iZe-Gv-7II"/>
                         </constraints>
                     </view>
                     <connections>
@@ -318,6 +343,7 @@
         <class className="ResultViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
             <relationships>
+                <relationship kind="action" name="changePage:"/>
                 <relationship kind="action" name="onBackButtonPressed:"/>
                 <relationship kind="action" name="onNextButtonPressed:"/>
                 <relationship kind="outlet" name="mBackButton" candidateClass="UIBarButtonItem"/>
