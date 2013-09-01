@@ -14,8 +14,9 @@
 
 @implementation SearchViewController
 
-@synthesize searchTermStr1;
-@synthesize searchTermStr2;
+@synthesize mDelegate;
+@synthesize mTableView;
+@synthesize listData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +34,8 @@
     
     _mCareerTextField.placeholder = @"職務名稱";
     _mLocationTextField.placeholder = @"所在地區";
+    
+    mTableView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,25 +46,80 @@
 
 - (IBAction)onFinishedButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+    [mDelegate searchViewDismissed:_mCareerTextField.text];
 }
 - (IBAction)onAddButtonClicked:(id)sender {
-    
-    if ([searchTermStr1 length] == 0 && [searchTermStr2 length] == 0) {
-        searchTermStr1 = _mCareerTextField.text;
-    } else if ([searchTermStr2 length] == 0) {
-        searchTermStr2 = _mCareerTextField.text;
-    } else {
-        // do nothing
-    }
-    
-    [self updateSearchTerm];
+
 }
 
 - (void) updateSearchTerm {
     
-    _mCareerTextField.text = @"";
-    _mLocationTextField.text = @"";
-    _mSearchTerm1.text = searchTermStr1;
-    _mSearchTerm2.text = searchTermStr2;
 }
+
+#pragma mark TextField
+- (IBAction)onTextChanged:(id)sender {
+    
+    NSString *myUrlString = @"http://54.251.103.118/MobileJobSearchAPI/FreeKeyReturnJobCat.do";
+    NSString *body =  [NSString stringWithFormat:@"jobTitle=%@", _mCareerTextField.text];
+    NSURL *myUrl = [NSURL URLWithString:myUrlString];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:myUrl];
+    [request setTimeoutInterval:30.0f];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"json = %@", ret);
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
+    
+    listData = dic.allKeys;
+    [mTableView reloadData];
+    
+    if (_mCareerTextField.text.length == 0) {
+        NSLog(@"0");
+        mTableView.hidden = YES;
+    } else {
+        if (listData.count == 0) {
+            mTableView.hidden = YES;
+        } else {
+            mTableView.hidden = NO;
+        }
+    }
+    
+}
+
+# pragma mark TableView
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    NSLog(@"num of rows");
+    return [listData count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *tableIdentifier = @"Simple table";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableIdentifier];
+    
+    if(cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableIdentifier];
+    }
+    
+    NSUInteger row = [indexPath row];
+    cell.textLabel.text = [listData objectAtIndex:row];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%ld",(long)indexPath.row);
+    [_mCareerTextField setText:[listData objectAtIndex:indexPath.row]];
+    mTableView.hidden = YES;
+}
+
 @end

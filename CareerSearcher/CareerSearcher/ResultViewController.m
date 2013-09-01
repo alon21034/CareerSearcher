@@ -34,15 +34,8 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)reloadPages
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    pageNum = 4;
-    pageWidth = 280;
-    pageHeight = 420;
-    
     // set scroll view
     NSMutableArray *controllers = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < pageNum; i++)
@@ -54,14 +47,41 @@
     // a page is the width of the scroll view
     self.mScrollView.pagingEnabled = YES;
     self.mScrollView.contentSize =
-        CGSizeMake(pageWidth * pageNum, pageHeight);
-    self.mScrollView.showsHorizontalScrollIndicator = NO;
-    self.mScrollView.showsVerticalScrollIndicator = NO;
+    CGSizeMake(pageWidth * pageNum, pageHeight);
+    self.mScrollView.showsHorizontalScrollIndicator = YES;
+    self.mScrollView.showsVerticalScrollIndicator = YES;
     self.mScrollView.scrollsToTop = NO;
     self.mScrollView.delegate = self;
     
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    
+
+    // set params
+    if  (_mCareerList == NULL) {
+        _mCareerList = [[NSMutableArray alloc] init];
+        for (NSUInteger i = 0; i < 3 ; i++) {
+            [_mCareerList addObject:[NSNull null]];
+        }
+    }
+    
+    pageNum = 1;
+    pageWidth = 280;
+    pageHeight = 432;
+    
+    [self setButtonTitle];
+    
+    // set pageControl
+    [mPageControl setNumberOfPages:pageNum];
+    
+    
+    [self reloadPages];
     
 }
 
@@ -120,6 +140,8 @@
 - (void)gotoPage:(BOOL)animated
 {
     NSInteger page = self.mPageControl.currentPage;
+ 
+    //[self highlightButton:page];
     
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
     [self loadScrollViewWithPage:page - 1];
@@ -138,6 +160,33 @@
     [self gotoPage:YES];    // YES = animate
 }
 
+#pragma mark change_btns
+
+- (void)setButtonTitle {
+    NSLog(@"setButtonTitle");
+    [_mButton1 setTitle:[_mCareerList objectAtIndex:0] forState:UIControlStateNormal];
+    
+    if ([_mCareerList objectAtIndex:1] == [NSNull null]) {
+        [_mButton2 setHidden:YES];
+    } else {
+        [_mButton2 setTitle:[_mCareerList objectAtIndex:1] forState:UIControlStateNormal];
+        [_mButton2 setHidden:NO];
+        pageNum++;
+    }
+    
+    if ([_mCareerList objectAtIndex:2] == [NSNull null]) {
+        [_mButton3 setHidden:YES];
+    } else {
+        [_mButton3 setTitle:[_mCareerList objectAtIndex:2] forState:UIControlStateNormal];
+        [_mButton3 setHidden:NO];
+        pageNum++;
+    }
+}
+
+//- (void)highlightButton:(NSInteger)page {
+//
+//}
+
 #pragma mark onClick
 
 - (IBAction)onBackButtonPressed:(id)sender {
@@ -146,6 +195,7 @@
 
 - (IBAction)onNextButtonPressed:(id)sender {
     SearchViewController *searchView = [self.storyboard instantiateViewControllerWithIdentifier:@"search_view"];
+    searchView.mDelegate = self;
     [self presentViewController:searchView animated:YES completion:nil];
 }
 
@@ -153,4 +203,24 @@
     [mPageControl setCurrentPage:[sender tag]];
     [self gotoPage:YES];
 }
+
+#pragma mark delegate
+
+- (void)searchViewDismissed:(NSString*)str {
+    if ([_mCareerList objectAtIndex:1] == [NSNull null]) {
+        // only 1
+        [_mCareerList replaceObjectAtIndex:1 withObject:str];
+    } else if ([_mCareerList objectAtIndex:2] == [NSNull null]) {
+        // 1+2
+        [_mCareerList replaceObjectAtIndex:2 withObject:str];
+    } else {
+        // 1+2+3
+        [_mCareerList replaceObjectAtIndex:2 withObject:str];
+    }
+    
+    [self setButtonTitle];
+    [mPageControl setNumberOfPages:pageNum];
+    [self reloadPages];
+}
+
 @end

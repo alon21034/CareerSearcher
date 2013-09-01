@@ -8,16 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UIViewController
+@protocol SearchViewDelegate <NSObject>
+
+-(void)searchViewDismissed:(NSString*)str;
+
+@end
+
+@interface SearchViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 - (IBAction)onFinishedButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *mCareerTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mLocationTextField;
 @property (weak, nonatomic) IBOutlet UIButton *mAddButton;
-@property (weak, nonatomic) IBOutlet UILabel *mSearchTerm1;
-@property (weak, nonatomic) IBOutlet UILabel *mSearchTerm2;
+@property (strong, nonatomic) IBOutlet UITableView *mTableView;
+@property (strong, nonatomic) NSArray *listData;
 
-@property (strong, nonatomic) NSString *searchTermStr1;
-@property (strong, nonatomic) NSString *searchTermStr2;
+@property (weak, nonatomic) NSMutableArray* mSearchTermArr;
+
 - (IBAction)onAddButtonClicked:(id)sender;
+
+- (IBAction)onTextChanged:(id)sender;
+@property (assign, nonatomic) id<SearchViewDelegate> mDelegate;
 
 @end

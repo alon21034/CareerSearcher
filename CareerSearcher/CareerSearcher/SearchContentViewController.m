@@ -34,8 +34,6 @@
 {
     [super viewDidLoad];
     
-    _mLabel.text = [NSString stringWithFormat:@"page: %d", mPage];
-    
     mListData = [[NSMutableArray alloc] init];
     NSString *myUrlString = @"http://54.251.103.118/MobileJobSearchAPI/JobCatAreaReturnJob.do";
     NSString *body =  [NSString stringWithFormat:@"jobTitle=%@&area=%@", @"aaa", @"bbb"];

@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchViewController.h"
 
-@interface ResultViewController : UIViewController<UIScrollViewDelegate>
+@interface ResultViewController : UIViewController<UIScrollViewDelegate, SearchViewDelegate>
 
-@property (weak, nonatomic) NSString *mCareer;
-@property (weak, nonatomic) NSString *mLocation;
+@property (strong, nonatomic) NSMutableArray* mCareerList;
+
+@property (weak, nonatomic) NSString *mLocation1;
+@property (weak, nonatomic) NSString *mLocation2;
+@property (weak, nonatomic) NSString *mLocation3;
 
 #pragma mark navigation_bar
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mNextButton;

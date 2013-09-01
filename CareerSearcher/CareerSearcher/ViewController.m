@@ -38,8 +38,16 @@
 #pragma mark Button
 - (IBAction)onButtonClicked:(id)sender {
     ResultViewController *view= [self.storyboard instantiateViewControllerWithIdentifier:@"result_view"];
-    view.mCareer = _mCareerTextField.text;
-    view.mLocation = _mLocationField.text;
+    if (view.mCareerList == NULL) {
+        view.mCareerList = [[NSMutableArray alloc] init];
+        for (NSUInteger i = 0; i < 3 ; i++) {
+            [view.mCareerList addObject:[NSNull null]];
+        }
+        [view.mCareerList replaceObjectAtIndex:0 withObject:_mCareerTextField.text];
+    } else {
+        [view.mCareerList replaceObjectAtIndex:0 withObject:_mCareerTextField.text];
+    }
+
     [self presentViewController:view animated:YES completion:nil];
 }
 
