@@ -73,13 +73,30 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableIdentifier];
     
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:tableIdentifier];
     }
     
     NSUInteger row = [indexPath row];
     cell.textLabel.text = [mListData objectAtIndex:row];
+    cell.detailTextLabel.text = @"aaa";
+    [cell.imageView setFrame:CGRectMake(0, 0, 30, 30)];
+    [cell.imageView setImage:[self imageFromColor:[UIColor blueColor]]];
+    
+    cell.backgroundColor = [UIColor greenColor];
+
     
     return cell;
+}
+
+- (UIImage *)imageFromColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0, 0, 30, 30);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
