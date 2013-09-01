@@ -98,6 +98,7 @@
     {
         controller = [[SearchContentViewController alloc] initWithPageNumber:page];
         [self.mControllersArray replaceObjectAtIndex:page withObject:controller];
+        controller.mDelegate = self;
     }
     
     // add the controller's view to the scroll view
@@ -221,6 +222,12 @@
     [self setButtonTitle];
     [mPageControl setNumberOfPages:pageNum];
     [self reloadPages];
+}
+
+- (void)selectJob:(NSString*)index {
+    NSLog(@"id = %@", index);
+    JobDetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"job_detail"];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 @end

@@ -17,6 +17,7 @@
 @implementation SearchContentViewController
 
 @synthesize mListData;
+@synthesize mDelegate;
 
 - (id)initWithPageNumber:(NSUInteger)page
 {
@@ -79,6 +80,12 @@
     cell.textLabel.text = [mListData objectAtIndex:row];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"select: %d", indexPath.row);
+    [mDelegate selectJob:[mListData objectAtIndex:indexPath.row]];
 }
 
 - (void)didReceiveMemoryWarning

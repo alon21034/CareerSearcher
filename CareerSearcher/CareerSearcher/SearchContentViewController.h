@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SelectJobDelegate <NSObject>
+
+-(void)selectJob:(NSString*)index;
+
+@end
+
 @interface SearchContentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithPageNumber:(NSUInteger)page;
 
 @property (strong, nonatomic) IBOutlet UITableView *mTableView;
 @property (strong, nonatomic) NSMutableArray *mListData;
+
+@property (assign, nonatomic) id<SelectJobDelegate> mDelegate;
 
 @end

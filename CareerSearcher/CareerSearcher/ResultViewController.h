@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SearchViewController.h"
+#import "SearchContentViewController.h"
 
-@interface ResultViewController : UIViewController<UIScrollViewDelegate, SearchViewDelegate>
+@interface ResultViewController : UIViewController<UIScrollViewDelegate, SearchViewDelegate, SelectJobDelegate>
 
 @property (strong, nonatomic) NSMutableArray* mCareerList;
 

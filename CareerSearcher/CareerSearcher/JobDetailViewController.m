@@ -32,14 +32,14 @@
     
 	// Do any additional setup after loading the view.
     
-    NSArray *arr = [NSJSONSerialization JSONObjectWithData:mJobData options:nil error:nil];
-    
-    NSDictionary *dic = [arr objectAtIndex:_mJobIndex];
-    
-    NSString *title = [dic valueForKey:@"JOB"];
-    NSString *description = [dic valueForKey:@"DESCRIPTION"];
-    
-    mLabel.text = [NSString stringWithFormat:@"title: %@ description: %@", title, description];
+//    NSArray *arr = [NSJSONSerialization JSONObjectWithData:mJobData options:nil error:nil];
+//    
+//    NSDictionary *dic = [arr objectAtIndex:_mJobIndex];
+//    
+//    NSString *title = [dic valueForKey:@"JOB"];
+//    NSString *description = [dic valueForKey:@"DESCRIPTION"];
+//    
+//    mLabel.text = [NSString stringWithFormat:@"title: %@ description: %@", title, description];
 }
 
 - (void)didReceiveMemoryWarning
