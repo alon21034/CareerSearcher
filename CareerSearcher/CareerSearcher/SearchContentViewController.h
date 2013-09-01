@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *mTableView;
 @property (strong, nonatomic) NSMutableArray *mListData;
+@property (strong, nonatomic) NSMutableArray *mJobDetailArr;
 
 @property (assign, nonatomic) id<SelectJobDelegate> mDelegate;
 

@@ -17,6 +17,7 @@
 @implementation SearchContentViewController
 
 @synthesize mListData;
+@synthesize mJobDetailArr;
 @synthesize mDelegate;
 
 - (id)initWithPageNumber:(NSUInteger)page
@@ -36,6 +37,7 @@
     [super viewDidLoad];
     
     mListData = [[NSMutableArray alloc] init];
+    mJobDetailArr = [[NSMutableArray alloc] init];
     NSString *myUrlString = @"http://54.251.103.118/MobileJobSearchAPI/JobCatAreaReturnJob.do";
     NSString *body =  [NSString stringWithFormat:@"jobTitle=%@&area=%@", @"aaa", @"bbb"];
     NSURL *myUrl = [NSURL URLWithString:myUrlString];
@@ -57,6 +59,7 @@
     for (NSDictionary *item in jobList) {
         NSLog(@"Item: %@", [item valueForKey:@"JOB"]);
         [mListData addObject:[item valueForKey:@"JOB"]];
+        [mJobDetailArr addObject:[item valueForKey:@"DESCRIPTION"]];
     }
     [_mTableView reloadData];
 }
@@ -78,7 +81,7 @@
     
     NSUInteger row = [indexPath row];
     cell.textLabel.text = [mListData objectAtIndex:row];
-    cell.detailTextLabel.text = @"aaa";
+    cell.detailTextLabel.text = [mJobDetailArr objectAtIndex:row];
     [cell.imageView setFrame:CGRectMake(0, 0, 30, 30)];
     [cell.imageView setImage:[self imageFromColor:[UIColor blueColor]]];
     
