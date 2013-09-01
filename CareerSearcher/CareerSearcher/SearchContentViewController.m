@@ -19,6 +19,7 @@
 @synthesize mListData;
 @synthesize mJobDetailArr;
 @synthesize mDelegate;
+@synthesize data;
 
 - (id)initWithPageNumber:(NSUInteger)page
 {
@@ -49,7 +50,7 @@
     
     NSError *error = nil;
     NSHTTPURLResponse *response = nil;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"json = %@", ret);
@@ -105,7 +106,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"select: %d", indexPath.row);
-    [mDelegate selectJob:[mListData objectAtIndex:indexPath.row]];
+    [mDelegate selectJob:data :indexPath.row];
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,7 +14,8 @@
 
 @implementation JobDetailViewController
 
-@synthesize mLabel;
+@synthesize mJobTitle;
+@synthesize mJobDetail;
 @synthesize mJobData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,14 +33,19 @@
     
 	// Do any additional setup after loading the view.
     
-//    NSArray *arr = [NSJSONSerialization JSONObjectWithData:mJobData options:nil error:nil];
-//    
-//    NSDictionary *dic = [arr objectAtIndex:_mJobIndex];
-//    
-//    NSString *title = [dic valueForKey:@"JOB"];
-//    NSString *description = [dic valueForKey:@"DESCRIPTION"];
-//    
-//    mLabel.text = [NSString stringWithFormat:@"title: %@ description: %@", title, description];
+    NSArray *arr = [NSJSONSerialization JSONObjectWithData:mJobData options:nil error:nil];
+    
+    NSDictionary *dic = [arr objectAtIndex:_mJobIndex];
+    
+    NSString *title = [dic valueForKey:@"JOB"];
+    NSString *description = [dic valueForKey:@"DESCRIPTION"];
+    
+    mJobTitle.text = title;
+    
+    mJobDetail.text = [NSString stringWithFormat:@"職務類別: %@\n工作待遇: %@\n上班地點: %@",
+                       [dic valueForKey:@"JOBCAT_DESCRIPT"],
+                       [dic valueForKey:@"SAL"],
+                       [dic valueForKey:@"ADDRESS"]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,7 +10,7 @@
 
 @protocol SelectJobDelegate <NSObject>
 
--(void)selectJob:(NSString*)index;
+-(void)selectJob:(NSData*)data :(NSInteger)index;
 
 @end
 
@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *mTableView;
 @property (strong, nonatomic) NSMutableArray *mListData;
 @property (strong, nonatomic) NSMutableArray *mJobDetailArr;
+@property (strong, nonatomic) NSData *data;
 
 @property (assign, nonatomic) id<SelectJobDelegate> mDelegate;
 

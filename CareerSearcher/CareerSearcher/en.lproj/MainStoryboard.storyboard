@@ -312,27 +312,49 @@
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="uQJ-OW-LEJ">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="372" id="2ii-h7-Twb"/>
+                                    <constraint firstAttribute="width" constant="280" id="UHc-G0-1Vs"/>
+                                    <constraint firstAttribute="height" constant="76" id="jhq-se-qrt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="g2X-3D-Ywe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="305" id="Vy8-oV-Fl1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="工作內容" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="XdX-No-gCF">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="o77-Te-IXV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uQJ-OW-LEJ" firstAttribute="leading" secondItem="GgS-i1-ANv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="1HF-gS-lCX"/>
+                            <constraint firstItem="uQJ-OW-LEJ" firstAttribute="leading" secondItem="XdX-No-gCF" secondAttribute="leading" type="default" id="GjP-fJ-Dzb"/>
+                            <constraint firstItem="XdX-No-gCF" firstAttribute="top" secondItem="GgS-i1-ANv" secondAttribute="top" constant="190" id="OPz-dF-9fV"/>
+                            <constraint firstItem="uQJ-OW-LEJ" firstAttribute="trailing" secondItem="XdX-No-gCF" secondAttribute="trailing" type="default" id="PWO-FO-Trn"/>
                             <constraint firstItem="Lgg-ry-9mH" firstAttribute="leading" secondItem="GgS-i1-ANv" secondAttribute="leading" type="default" id="RH5-JB-69a"/>
                             <constraint firstItem="Lgg-ry-9mH" firstAttribute="trailing" secondItem="GgS-i1-ANv" secondAttribute="trailing" type="default" id="TkY-VM-bA7"/>
-                            <constraint firstAttribute="bottom" secondItem="uQJ-OW-LEJ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="UzA-OO-QJo"/>
+                            <constraint firstItem="g2X-3D-Ywe" firstAttribute="trailing" secondItem="XdX-No-gCF" secondAttribute="trailing" type="default" id="WDY-8i-O6n"/>
                             <constraint firstItem="Lgg-ry-9mH" firstAttribute="top" secondItem="GgS-i1-ANv" secondAttribute="top" type="default" id="a3f-yG-4L3"/>
-                            <constraint firstAttribute="trailing" secondItem="uQJ-OW-LEJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aCE-q7-Av7"/>
                             <constraint firstItem="jME-ep-49u" firstAttribute="leading" secondItem="GgS-i1-ANv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bZp-Kl-eDQ"/>
+                            <constraint firstAttribute="bottom" secondItem="g2X-3D-Ywe" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="g2Z-U5-O1l"/>
                             <constraint firstItem="jME-ep-49u" firstAttribute="top" secondItem="GgS-i1-ANv" secondAttribute="top" constant="60" id="ogm-AU-jCF"/>
+                            <constraint firstItem="uQJ-OW-LEJ" firstAttribute="top" secondItem="GgS-i1-ANv" secondAttribute="top" constant="118" id="pHJ-In-S7J"/>
+                            <constraint firstItem="uQJ-OW-LEJ" firstAttribute="leading" secondItem="GgS-i1-ANv" secondAttribute="leading" constant="10" id="ybT-PD-0iv"/>
+                            <constraint firstItem="g2X-3D-Ywe" firstAttribute="leading" secondItem="XdX-No-gCF" secondAttribute="leading" type="default" id="z4z-ei-HpZ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mLabel" destination="uQJ-OW-LEJ" id="XX2-DR-Z5P"/>
+                        <outlet property="mJobDetail" destination="g2X-3D-Ywe" id="gD0-WP-Tgx"/>
+                        <outlet property="mJobTitle" destination="uQJ-OW-LEJ" id="56s-SP-0iy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRf-rH-D3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -340,6 +362,58 @@
             <point key="canvasLocation" x="1202" y="561"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="JobDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onBackButtonPressed:"/>
+                <relationship kind="outlet" name="mJobDetail" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mJobTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ResultViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changePage:"/>
+                <relationship kind="action" name="onBackButtonPressed:"/>
+                <relationship kind="action" name="onNextButtonPressed:"/>
+                <relationship kind="action" name="onTabButtonClicked:"/>
+                <relationship kind="outlet" name="mBackButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="mButton1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mButton2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mButton3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mNextButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="mPageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="mScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onAddButtonClicked:"/>
+                <relationship kind="action" name="onFinishedButtonPressed:"/>
+                <relationship kind="action" name="onTextChanged:"/>
+                <relationship kind="outlet" name="mAddButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mCareerTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mLocationTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onButtonClicked:"/>
+                <relationship kind="action" name="onTextChanged:"/>
+                <relationship kind="outlet" name="mButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mCareerTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mLocationField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

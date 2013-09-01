@@ -165,6 +165,7 @@
 
 - (void)setButtonTitle {
     NSLog(@"setButtonTitle");
+    pageNum = 1;
     [_mButton1 setTitle:[_mCareerList objectAtIndex:0] forState:UIControlStateNormal];
     
     if ([_mCareerList objectAtIndex:1] == [NSNull null]) {
@@ -183,10 +184,6 @@
         pageNum++;
     }
 }
-
-//- (void)highlightButton:(NSInteger)page {
-//
-//}
 
 #pragma mark onClick
 
@@ -224,9 +221,10 @@
     [self reloadPages];
 }
 
-- (void)selectJob:(NSString*)index {
-    NSLog(@"id = %@", index);
+- (void)selectJob:(NSData*)data :(NSInteger)index {
     JobDetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"job_detail"];
+    controller.mJobData = data;
+    controller.mJobIndex = index;
     [self presentViewController:controller animated:YES completion:nil];
 }
 

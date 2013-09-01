@@ -10,7 +10,9 @@
 
 @interface JobDetailViewController : UIViewController
 - (IBAction)onBackButtonPressed:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *mLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mJobTitle;
+@property (strong, nonatomic) IBOutlet UILabel *mJobDetail;
+
 @property (weak, nonatomic) NSData *mJobData;
 @property int mJobIndex;
 
