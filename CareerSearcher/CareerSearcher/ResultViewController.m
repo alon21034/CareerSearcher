@@ -72,8 +72,8 @@
     }
     
     pageNum = 1;
-    pageWidth = 280;
-    pageHeight = 432;
+    pageWidth = 320;
+    pageHeight = 452;
     
     [self setButtonTitle];
     

@@ -165,15 +165,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xL1-xe-2tN" firstAttribute="leading" secondItem="kqH-23-Xel" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="1Ky-V9-0iw"/>
                             <constraint firstItem="EHK-s4-gZ8" firstAttribute="leading" secondItem="3pS-FM-4jo" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="3Qw-hL-jMG"/>
                             <constraint firstItem="xL1-xe-2tN" firstAttribute="top" secondItem="QqJ-aq-GAn" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5jB-2A-i5a"/>
-                            <constraint firstAttribute="bottom" secondItem="xL1-xe-2tN" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="604-4m-OT3"/>
                             <constraint firstItem="QqJ-aq-GAn" firstAttribute="leading" secondItem="kqH-23-Xel" secondAttribute="leading" constant="7" id="6RI-Lc-5QV"/>
                             <constraint firstItem="2fZ-5Z-MaT" firstAttribute="trailing" secondItem="kqH-23-Xel" secondAttribute="trailing" type="default" id="876-6o-M8v"/>
                             <constraint firstItem="2fZ-5Z-MaT" firstAttribute="top" secondItem="kqH-23-Xel" secondAttribute="top" constant="-5" id="B8n-Lb-AGJ"/>
                             <constraint firstItem="QqJ-aq-GAn" firstAttribute="top" secondItem="kqH-23-Xel" secondAttribute="top" constant="45" id="G8H-yX-ABB"/>
-                            <constraint firstAttribute="trailing" secondItem="xL1-xe-2tN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="H6u-Me-Zfq"/>
+                            <constraint firstItem="xL1-xe-2tN" firstAttribute="bottom" secondItem="kqH-23-Xel" secondAttribute="bottom" type="default" id="HIU-BJ-gYC"/>
                             <constraint firstItem="3pS-FM-4jo" firstAttribute="baseline" secondItem="QqJ-aq-GAn" secondAttribute="baseline" type="default" id="K90-Ur-ODZ"/>
                             <constraint firstItem="g4U-Cb-zBf" firstAttribute="leading" secondItem="kqH-23-Xel" secondAttribute="leading" type="default" id="MpG-7T-ikv"/>
                             <constraint firstItem="3pS-FM-4jo" firstAttribute="leading" secondItem="QqJ-aq-GAn" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="YCN-Oe-L47"/>
@@ -181,6 +179,8 @@
                             <constraint firstItem="EHK-s4-gZ8" firstAttribute="baseline" secondItem="3pS-FM-4jo" secondAttribute="baseline" type="default" id="awn-WT-U3a"/>
                             <constraint firstItem="2fZ-5Z-MaT" firstAttribute="leading" secondItem="kqH-23-Xel" secondAttribute="leading" type="default" id="cMR-Gp-Rce"/>
                             <constraint firstItem="g4U-Cb-zBf" firstAttribute="trailing" secondItem="kqH-23-Xel" secondAttribute="trailing" type="default" id="dWd-YA-Bxh"/>
+                            <constraint firstItem="xL1-xe-2tN" firstAttribute="trailing" secondItem="kqH-23-Xel" secondAttribute="trailing" type="default" id="fd5-WH-j1y"/>
+                            <constraint firstItem="xL1-xe-2tN" firstAttribute="leading" secondItem="kqH-23-Xel" secondAttribute="leading" type="default" id="y6W-LF-LAa"/>
                         </constraints>
                     </view>
                     <connections>
