@@ -29,4 +29,6 @@
 - (IBAction)onTextChanged:(id)sender;
 @property (assign, nonatomic) id<SearchViewDelegate> mDelegate;
 
+@property (strong, nonatomic) NSMutableArray *mCareerTermArr;
+
 @end
