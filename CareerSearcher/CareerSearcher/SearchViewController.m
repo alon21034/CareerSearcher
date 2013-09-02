@@ -36,6 +36,27 @@
     _mLocationTextField.placeholder = @"所在地區";
     
     mTableView.hidden = YES;
+    
+    if ([_mCareerTermArr objectAtIndex:0] == [NSNull null]) {
+        _mButton1.hidden = YES;
+    } else {
+        _mButton1.hidden = NO;
+        [_mButton1 setTitle:[_mCareerTermArr objectAtIndex:0] forState:UIControlStateNormal];
+    }
+    
+    if ([_mCareerTermArr objectAtIndex:1] == [NSNull null]) {
+        _mButton2.hidden = YES;
+    } else {
+        _mButton2.hidden = NO;
+        [_mButton2 setTitle:[_mCareerTermArr objectAtIndex:1] forState:UIControlStateNormal];
+    }
+    
+    if ([_mCareerTermArr objectAtIndex:2] == [NSNull null]) {
+        _mButton3.hidden = YES;
+    } else {
+        _mButton3.hidden = NO;
+        [_mButton3 setTitle:[_mCareerTermArr objectAtIndex:2] forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning

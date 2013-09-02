@@ -30,5 +30,8 @@
 @property (assign, nonatomic) id<SearchViewDelegate> mDelegate;
 
 @property (strong, nonatomic) NSMutableArray *mCareerTermArr;
+@property (strong, nonatomic) IBOutlet UIButton *mButton1;
+@property (strong, nonatomic) IBOutlet UIButton *mButton2;
+@property (strong, nonatomic) IBOutlet UIButton *mButton3;
 
 @end

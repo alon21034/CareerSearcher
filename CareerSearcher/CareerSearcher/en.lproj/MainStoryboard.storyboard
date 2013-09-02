@@ -229,9 +229,6 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ChX-C8-SWh">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="272" id="rK4-dV-Va1"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -259,6 +256,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="deB-rl-O3i">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="272" id="1Lc-en-hZX"/>
                                     <constraint firstAttribute="height" constant="274" id="4b6-no-Y0c"/>
                                 </constraints>
                                 <connections>
@@ -315,37 +313,45 @@
                                     <action selector="onTabButtonClicked:" destination="ylC-Yu-HS6" eventType="touchUpInside" id="cCt-iB-EE8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="拖動標籤調整順序" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5C-3H-eS3">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2vX-ft-Bqx" firstAttribute="baseline" secondItem="aIh-Tq-2fg" secondAttribute="baseline" type="default" id="1iy-oq-F3S"/>
+                            <constraint firstItem="7Tl-ge-kaU" firstAttribute="leading" secondItem="ChX-C8-SWh" secondAttribute="leading" type="default" id="2JE-hK-JVi"/>
                             <constraint firstItem="2vX-ft-Bqx" firstAttribute="top" secondItem="bGf-SH-KYB" secondAttribute="top" type="default" id="2iJ-y6-SmL"/>
-                            <constraint firstItem="bGf-SH-KYB" firstAttribute="leading" secondItem="fnJ-Dl-uEk" secondAttribute="leading" constant="90" id="9j4-cu-5Qo"/>
-                            <constraint firstItem="bGf-SH-KYB" firstAttribute="top" secondItem="fnJ-Dl-uEk" secondAttribute="top" constant="40" id="AIF-CU-Fac"/>
-                            <constraint firstItem="deB-rl-O3i" firstAttribute="trailing" secondItem="kTC-fw-BMX" secondAttribute="trailing" type="default" id="Ddh-b2-XIt"/>
+                            <constraint firstItem="bGf-SH-KYB" firstAttribute="leading" secondItem="fnJ-Dl-uEk" secondAttribute="leading" constant="104" id="2jF-zF-uNc"/>
+                            <constraint firstItem="I5C-3H-eS3" firstAttribute="leading" secondItem="fnJ-Dl-uEk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="47u-ij-iQz"/>
+                            <constraint firstItem="aIh-Tq-2fg" firstAttribute="leading" secondItem="ChX-C8-SWh" secondAttribute="leading" type="default" id="5ZD-IG-8b1"/>
+                            <constraint firstItem="aIh-Tq-2fg" firstAttribute="top" secondItem="fnJ-Dl-uEk" secondAttribute="top" constant="117" id="BP1-5q-HQ6"/>
                             <constraint firstItem="2vX-ft-Bqx" firstAttribute="bottom" secondItem="bGf-SH-KYB" secondAttribute="bottom" type="default" id="DhE-Lv-PVJ"/>
+                            <constraint firstItem="ChX-C8-SWh" firstAttribute="top" secondItem="fnJ-Dl-uEk" secondAttribute="top" constant="239" id="Dsi-RT-thP"/>
+                            <constraint firstItem="I5C-3H-eS3" firstAttribute="top" secondItem="fnJ-Dl-uEk" secondAttribute="top" constant="52" id="EGt-B1-dni"/>
                             <constraint firstItem="7Tl-ge-kaU" firstAttribute="trailing" secondItem="ChX-C8-SWh" secondAttribute="trailing" type="default" id="JUR-IB-TdI"/>
-                            <constraint firstItem="2vX-ft-Bqx" firstAttribute="baseline" secondItem="bGf-SH-KYB" secondAttribute="baseline" type="default" id="MI2-10-IPj"/>
+                            <constraint firstItem="deB-rl-O3i" firstAttribute="centerX" secondItem="uXc-0X-Y42" secondAttribute="centerX" type="default" id="NXT-JR-S0a"/>
+                            <constraint firstItem="kTC-fw-BMX" firstAttribute="top" secondItem="7Tl-ge-kaU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Nvb-tt-3YH"/>
                             <constraint firstItem="bGf-SH-KYB" firstAttribute="bottom" secondItem="aIh-Tq-2fg" secondAttribute="bottom" type="default" id="OnY-A1-RZZ"/>
-                            <constraint firstItem="ChX-C8-SWh" firstAttribute="leading" secondItem="fnJ-Dl-uEk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Prm-jX-EFR"/>
                             <constraint firstItem="uXc-0X-Y42" firstAttribute="top" secondItem="fnJ-Dl-uEk" secondAttribute="top" constant="-5" id="SnB-T0-AIs"/>
                             <constraint firstItem="uXc-0X-Y42" firstAttribute="leading" secondItem="fnJ-Dl-uEk" secondAttribute="leading" type="default" id="URv-xh-TCf"/>
-                            <constraint firstItem="uXc-0X-Y42" firstAttribute="trailing" secondItem="fnJ-Dl-uEk" secondAttribute="trailing" type="default" id="V0x-Yw-IcH"/>
-                            <constraint firstItem="kTC-fw-BMX" firstAttribute="top" secondItem="fnJ-Dl-uEk" secondAttribute="top" constant="231" id="VNb-tr-oeL"/>
-                            <constraint firstItem="deB-rl-O3i" firstAttribute="top" secondItem="fnJ-Dl-uEk" secondAttribute="top" constant="174" id="XKz-bS-riX"/>
-                            <constraint firstItem="7Tl-ge-kaU" firstAttribute="leading" secondItem="fnJ-Dl-uEk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Xn7-Zh-wx2"/>
+                            <constraint firstItem="deB-rl-O3i" firstAttribute="trailing" secondItem="7Tl-ge-kaU" secondAttribute="trailing" type="default" id="Xf0-F5-A6r"/>
                             <constraint firstItem="7Tl-ge-kaU" firstAttribute="top" secondItem="ChX-C8-SWh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Yse-ZH-KFx"/>
                             <constraint firstItem="7Tl-ge-kaU" firstAttribute="trailing" secondItem="kTC-fw-BMX" secondAttribute="trailing" type="default" id="ctX-Ek-wHi"/>
-                            <constraint firstAttribute="trailing" secondItem="2vX-ft-Bqx" secondAttribute="trailing" constant="80" id="dQS-4F-4bV"/>
-                            <constraint firstItem="kTC-fw-BMX" firstAttribute="leading" secondItem="fnJ-Dl-uEk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dTF-LN-SGs"/>
-                            <constraint firstItem="deB-rl-O3i" firstAttribute="leading" secondItem="fnJ-Dl-uEk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="j7N-fG-rgo"/>
-                            <constraint firstItem="aIh-Tq-2fg" firstAttribute="leading" secondItem="fnJ-Dl-uEk" secondAttribute="leading" constant="10" id="s5m-my-ZN6"/>
+                            <constraint firstItem="kTC-fw-BMX" firstAttribute="leading" secondItem="7Tl-ge-kaU" secondAttribute="leading" type="default" id="gog-LK-kAX"/>
+                            <constraint firstItem="deB-rl-O3i" firstAttribute="leading" secondItem="kTC-fw-BMX" secondAttribute="leading" type="default" id="hKI-MV-W7h"/>
+                            <constraint firstItem="deB-rl-O3i" firstAttribute="top" secondItem="fnJ-Dl-uEk" secondAttribute="top" constant="267" id="p9o-Rv-kMN"/>
                             <constraint firstItem="bGf-SH-KYB" firstAttribute="top" secondItem="aIh-Tq-2fg" secondAttribute="top" type="default" id="sPC-dN-sZv"/>
-                            <constraint firstItem="ChX-C8-SWh" firstAttribute="top" secondItem="fnJ-Dl-uEk" secondAttribute="top" constant="145" id="wbO-mz-DoV"/>
+                            <constraint firstAttribute="trailing" secondItem="2vX-ft-Bqx" secondAttribute="trailing" constant="66" id="vkH-Bw-P7r"/>
+                            <constraint firstItem="uXc-0X-Y42" firstAttribute="trailing" secondItem="fnJ-Dl-uEk" secondAttribute="trailing" type="default" id="ymt-jh-36q"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mAddButton" destination="kTC-fw-BMX" id="fea-th-wq0"/>
+                        <outlet property="mButton1" destination="aIh-Tq-2fg" id="1b1-kv-RXd"/>
+                        <outlet property="mButton2" destination="bGf-SH-KYB" id="bDL-LA-hsl"/>
+                        <outlet property="mButton3" destination="2vX-ft-Bqx" id="l6K-QF-SXr"/>
                         <outlet property="mCareerTextField" destination="ChX-C8-SWh" id="Mzu-pz-DUZ"/>
                         <outlet property="mLocationTextField" destination="7Tl-ge-kaU" id="Dmd-Dv-Ep5"/>
                         <outlet property="mTableView" destination="deB-rl-O3i" id="7oH-ai-MN3"/>
@@ -433,6 +439,61 @@
             <point key="canvasLocation" x="1202" y="561"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="JobDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onBackButtonPressed:"/>
+                <relationship kind="outlet" name="mJobDetail" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mJobTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ResultViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changePage:"/>
+                <relationship kind="action" name="onBackButtonPressed:"/>
+                <relationship kind="action" name="onNextButtonPressed:"/>
+                <relationship kind="action" name="onTabButtonClicked:"/>
+                <relationship kind="outlet" name="mBackButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="mButton1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mButton2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mButton3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mNextButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="mPageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="mScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onAddButtonClicked:"/>
+                <relationship kind="action" name="onFinishedButtonPressed:"/>
+                <relationship kind="action" name="onTextChanged:"/>
+                <relationship kind="outlet" name="mAddButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mButton1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mButton2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mButton3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mCareerTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mLocationTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onButtonClicked:"/>
+                <relationship kind="action" name="onTextChanged:"/>
+                <relationship kind="outlet" name="mButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mCareerTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mLocationField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
