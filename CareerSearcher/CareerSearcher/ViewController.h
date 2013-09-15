@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AutoCompleteViewController.h"
+
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITextField *mCareerTextField;
+
 @property (weak, nonatomic) IBOutlet UITextField *mLocationField;
 @property (weak, nonatomic) IBOutlet UIButton *mButton;
-@property (weak, nonatomic) IBOutlet UITableView *mTableView;
-@property (strong, nonatomic) NSArray *listData;
+@property (strong, nonatomic) AutoCompleteViewController *vc;
+
+@property (strong, nonatomic) IBOutlet UIView *mCareerACTextField;
 
 - (IBAction)onButtonClicked:(id)sender;
-- (IBAction)onTextChanged:(id)sender;
 
 @end
