@@ -36,19 +36,26 @@
                                     <action selector="onButtonClicked:" destination="2" eventType="touchUpInside" id="wkX-B8-3Uo"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OaT-Sr-FO5">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="GfQ-71-Yxc" secondAttribute="bottom" constant="201" id="2ti-TB-MTs"/>
                             <constraint firstItem="1LR-J2-PJc" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="3pY-Or-4Hj"/>
                             <constraint firstItem="1LR-J2-PJc" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="7Af-61-UUp"/>
-                            <constraint firstItem="BKl-Pv-gI7" firstAttribute="top" secondItem="3" secondAttribute="top" constant="273" id="7gN-AN-mTk"/>
                             <constraint firstItem="GfQ-71-Yxc" firstAttribute="top" secondItem="3" secondAttribute="top" constant="65" id="8Yi-Ea-8zl"/>
+                            <constraint firstAttribute="bottom" secondItem="GfQ-71-Yxc" secondAttribute="bottom" constant="272" id="8vS-kA-QuJ"/>
+                            <constraint firstAttribute="trailing" secondItem="OaT-Sr-FO5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="9cQ-pT-Ghz"/>
+                            <constraint firstItem="BKl-Pv-gI7" firstAttribute="top" secondItem="3" secondAttribute="top" constant="223" id="K0i-5t-QAZ"/>
                             <constraint firstItem="GfQ-71-Yxc" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Wq8-h5-dMy"/>
                             <constraint firstItem="BKl-Pv-gI7" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="d1T-IS-PrC"/>
+                            <constraint firstItem="OaT-Sr-FO5" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kg5-C4-H8H"/>
                             <constraint firstItem="1LR-J2-PJc" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-1" id="lyF-1s-hkh"/>
                             <constraint firstAttribute="trailing" secondItem="GfQ-71-Yxc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="m3M-9Q-9hp"/>
                             <constraint firstAttribute="trailing" secondItem="BKl-Pv-gI7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="sKz-WE-55t"/>
+                            <constraint firstItem="OaT-Sr-FO5" firstAttribute="top" secondItem="3" secondAttribute="top" constant="180" id="vRL-Z0-4Fh"/>
                         </constraints>
                         <attributedString key="userComments">
                             <fragment content="aaa">
@@ -62,6 +69,7 @@
                     <connections>
                         <outlet property="mButton" destination="BKl-Pv-gI7" id="Jag-hZ-nzb"/>
                         <outlet property="mCareerACTextField" destination="GfQ-71-Yxc" id="jCN-xd-5dI"/>
+                        <outlet property="mLocationTextField" destination="OaT-Sr-FO5" id="fDy-A4-IqG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -419,7 +427,7 @@
             <objects>
                 <viewController id="Dnc-SU-r2q" customClass="AutoCompleteViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7hJ-Fs-Cak">
-                        <rect key="frame" x="0.0" y="0.0" width="280" height="282"/>
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="211"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMl-b1-9Q1">
@@ -518,6 +526,7 @@
                 <relationship kind="action" name="onButtonClicked:"/>
                 <relationship kind="outlet" name="mButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mCareerACTextField" candidateClass="UIView"/>
+                <relationship kind="outlet" name="mLocationTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
     </classes>

@@ -16,11 +16,15 @@
 
 @implementation ViewController
 
+@synthesize mLocationTextField;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    //_mLocationField.placeholder = @"所在地區";
+    mLocationTextField.placeholder = @"所在地區";
+    
+    mLocationTextField.text = @"台北市";
     
     _vc = [self.childViewControllers objectAtIndex:0];
 }
@@ -33,6 +37,7 @@
 
 #pragma mark Button
 - (IBAction)onButtonClicked:(id)sender {
+    
     ResultViewController *view= [self.storyboard instantiateViewControllerWithIdentifier:@"result_view"];
     if (view.mCareerList == NULL) {
         view.mCareerList = [[NSMutableArray alloc] init];

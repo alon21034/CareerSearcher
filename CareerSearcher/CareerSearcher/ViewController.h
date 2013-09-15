@@ -16,6 +16,7 @@
 @property (strong, nonatomic) AutoCompleteViewController *vc;
 
 @property (strong, nonatomic) IBOutlet UIView *mCareerACTextField;
+@property (strong, nonatomic) IBOutlet UITextField *mLocationTextField;
 
 - (IBAction)onButtonClicked:(id)sender;
 
