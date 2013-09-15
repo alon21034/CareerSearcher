@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F58003417E5E89000040821 /* AutoCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F58003317E5E89000040821 /* AutoCompleteViewController.m */; };
 		3F6DD2A817C0B6C3007C34FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DD2A717C0B6C3007C34FA /* UIKit.framework */; };
 		3F6DD2AA17C0B6C3007C34FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DD2A917C0B6C3007C34FA /* Foundation.framework */; };
 		3F6DD2AC17C0B6C3007C34FA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DD2AB17C0B6C3007C34FA /* CoreGraphics.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F58003217E5E89000040821 /* AutoCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCompleteViewController.h; sourceTree = "<group>"; };
+		3F58003317E5E89000040821 /* AutoCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCompleteViewController.m; sourceTree = "<group>"; };
 		3F6DD2A417C0B6C3007C34FA /* CareerSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareerSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6DD2A717C0B6C3007C34FA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3F6DD2A917C0B6C3007C34FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -146,6 +149,8 @@
 				611F20F517CB2CAD0065CBD2 /* SearchContentViewController.h */,
 				611F20F617CB2CAD0065CBD2 /* SearchContentViewController.m */,
 				611F20F717CB2CAD0065CBD2 /* SearchContentViewController.xib */,
+				3F58003217E5E89000040821 /* AutoCompleteViewController.h */,
+				3F58003317E5E89000040821 /* AutoCompleteViewController.m */,
 			);
 			path = CareerSearcher;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				3F6DD2EF17C0FF08007C34FA /* JobDetailViewController.m in Sources */,
 				3F6DD2F217C10271007C34FA /* SearchViewController.m in Sources */,
 				611F20F817CB2CAD0065CBD2 /* SearchContentViewController.m in Sources */,
+				3F58003417E5E89000040821 /* AutoCompleteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
