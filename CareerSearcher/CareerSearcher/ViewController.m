@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    _mLocationField.placeholder = @"所在地區";
+    //_mLocationField.placeholder = @"所在地區";
     
     _vc = [self.childViewControllers objectAtIndex:0];
 }

@@ -12,7 +12,6 @@
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITextField *mLocationField;
 @property (weak, nonatomic) IBOutlet UIButton *mButton;
 @property (strong, nonatomic) AutoCompleteViewController *vc;
 
