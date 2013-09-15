@@ -58,8 +58,8 @@
 
 - (IBAction)onNextButtonPressed:(id)sender {
     SearchViewController *searchView = [self.storyboard instantiateViewControllerWithIdentifier:@"search_view"];
-    searchView.mDelegate = self;
-    searchView.mCareerTermArr = [[NSMutableArray alloc] init];
+//    searchView.mDelegate = self;
+//    searchView.mCareerTermArr = [[NSMutableArray alloc] init];
     
     for (NSUInteger i = 0; i < 3 ; i++) {
         //[searchView.mCareerTermArr addObject:[_mCareerList objectAtIndex:i]];
