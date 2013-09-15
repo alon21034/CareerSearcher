@@ -31,11 +31,6 @@
     return self;
 }
 
-- (void)reloadPages
-{
-
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

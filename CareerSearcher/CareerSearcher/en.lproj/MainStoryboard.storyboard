@@ -17,45 +17,22 @@
                                     <navigationItem title="104人力銀行" id="I8q-iw-1En"/>
                                 </items>
                             </navigationBar>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GfQ-71-Yxc">
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dE0-FR-wue">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="Dnc-SU-r2q" kind="embed" id="BaR-of-oOC"/>
+                                    <segue destination="sWz-qm-Og7" kind="embed" id="oEY-JI-OBL"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKl-Pv-gI7">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="查詢">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onButtonClicked:" destination="2" eventType="touchUpInside" id="wkX-B8-3Uo"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OaT-Sr-FO5">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1LR-J2-PJc" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="3pY-Or-4Hj"/>
                             <constraint firstItem="1LR-J2-PJc" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="7Af-61-UUp"/>
-                            <constraint firstItem="GfQ-71-Yxc" firstAttribute="top" secondItem="3" secondAttribute="top" constant="65" id="8Yi-Ea-8zl"/>
-                            <constraint firstAttribute="bottom" secondItem="GfQ-71-Yxc" secondAttribute="bottom" constant="272" id="8vS-kA-QuJ"/>
-                            <constraint firstAttribute="trailing" secondItem="OaT-Sr-FO5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="9cQ-pT-Ghz"/>
-                            <constraint firstItem="BKl-Pv-gI7" firstAttribute="top" secondItem="3" secondAttribute="top" constant="223" id="K0i-5t-QAZ"/>
-                            <constraint firstItem="GfQ-71-Yxc" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Wq8-h5-dMy"/>
-                            <constraint firstItem="BKl-Pv-gI7" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="d1T-IS-PrC"/>
-                            <constraint firstItem="OaT-Sr-FO5" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kg5-C4-H8H"/>
+                            <constraint firstItem="dE0-FR-wue" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="IW3-F9-9S0"/>
+                            <constraint firstItem="dE0-FR-wue" firstAttribute="top" secondItem="3" secondAttribute="top" constant="60" id="aZ4-pO-1WM"/>
+                            <constraint firstAttribute="trailing" secondItem="dE0-FR-wue" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="isb-fd-6HV"/>
+                            <constraint firstAttribute="bottom" secondItem="dE0-FR-wue" secondAttribute="bottom" constant="227" id="kV2-H5-5p5"/>
                             <constraint firstItem="1LR-J2-PJc" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-1" id="lyF-1s-hkh"/>
-                            <constraint firstAttribute="trailing" secondItem="GfQ-71-Yxc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="m3M-9Q-9hp"/>
-                            <constraint firstAttribute="trailing" secondItem="BKl-Pv-gI7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="sKz-WE-55t"/>
-                            <constraint firstItem="OaT-Sr-FO5" firstAttribute="top" secondItem="3" secondAttribute="top" constant="180" id="vRL-Z0-4Fh"/>
                         </constraints>
                         <attributedString key="userComments">
                             <fragment content="aaa">
@@ -66,15 +43,10 @@
                             </fragment>
                         </attributedString>
                     </view>
-                    <connections>
-                        <outlet property="mButton" destination="BKl-Pv-gI7" id="Jag-hZ-nzb"/>
-                        <outlet property="mCareerACTextField" destination="GfQ-71-Yxc" id="jCN-xd-5dI"/>
-                        <outlet property="mLocationTextField" destination="OaT-Sr-FO5" id="fDy-A4-IqG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="286" y="203"/>
+            <point key="canvasLocation" x="226" y="203"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="gFA-Or-qYW">
@@ -236,52 +208,6 @@
             </objects>
             <point key="canvasLocation" x="1202" y="561"/>
         </scene>
-        <!--Auto Complete View Controller-->
-        <scene sceneID="53q-3T-nao">
-            <objects>
-                <viewController id="Dnc-SU-r2q" customClass="AutoCompleteViewController" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7hJ-Fs-Cak">
-                        <rect key="frame" x="0.0" y="0.0" width="280" height="211"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMl-b1-9Q1">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="onTextChanged:" destination="Dnc-SU-r2q" eventType="editingChanged" id="aU4-PD-vry"/>
-                                </connections>
-                            </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kxE-Dv-SBj">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="214" id="9Jh-eK-0Rh"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="Dnc-SU-r2q" id="dXm-uc-UVq"/>
-                                    <outlet property="delegate" destination="Dnc-SU-r2q" id="Jrc-ZJ-tBR"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="rMl-b1-9Q1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="AZ0-08-EI6"/>
-                            <constraint firstItem="rMl-b1-9Q1" firstAttribute="top" secondItem="7hJ-Fs-Cak" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Cmo-r1-wjl"/>
-                            <constraint firstAttribute="trailing" secondItem="kxE-Dv-SBj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="EhP-VZ-2Es"/>
-                            <constraint firstItem="kxE-Dv-SBj" firstAttribute="leading" secondItem="7hJ-Fs-Cak" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GtU-ZN-0jC"/>
-                            <constraint firstItem="kxE-Dv-SBj" firstAttribute="top" secondItem="rMl-b1-9Q1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Vse-6T-4JY"/>
-                            <constraint firstItem="rMl-b1-9Q1" firstAttribute="leading" secondItem="7hJ-Fs-Cak" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ynM-am-d60"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <connections>
-                        <outlet property="mTableView" destination="kxE-Dv-SBj" id="UMO-4a-nNP"/>
-                        <outlet property="mTextField" destination="rMl-b1-9Q1" id="Vqu-ki-DVQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eJC-R2-Gp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="286" y="-170"/>
-        </scene>
         <!--Indicator View Controller-->
         <scene sceneID="lHg-Tf-WIh">
             <objects>
@@ -323,7 +249,157 @@
             </objects>
             <point key="canvasLocation" x="682" y="-367"/>
         </scene>
+        <!--Search Text Field View Controller-->
+        <scene sceneID="pzK-hx-sPt">
+            <objects>
+                <viewController id="sWz-qm-Og7" customClass="SearchTextFieldViewController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3tn-OF-cDs">
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="261"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nf-F4-hTP">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="FTW-LI-aPu" kind="embed" id="sbH-DC-BT4"/>
+                                </connections>
+                            </containerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mXg-So-QPY">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EI3-8T-ejk">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="完成">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mXg-So-QPY" firstAttribute="top" secondItem="3tn-OF-cDs" secondAttribute="top" constant="97" id="8kl-9F-AHe"/>
+                            <constraint firstItem="EI3-8T-ejk" firstAttribute="centerX" secondItem="4nf-F4-hTP" secondAttribute="centerX" type="default" id="EJf-sK-wdd"/>
+                            <constraint firstItem="EI3-8T-ejk" firstAttribute="centerX" secondItem="mXg-So-QPY" secondAttribute="centerX" type="default" id="NWu-y2-y8d"/>
+                            <constraint firstAttribute="bottom" secondItem="4nf-F4-hTP" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Rwd-nP-vJ7"/>
+                            <constraint firstItem="mXg-So-QPY" firstAttribute="leading" secondItem="3tn-OF-cDs" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="TS1-hg-TQC"/>
+                            <constraint firstItem="4nf-F4-hTP" firstAttribute="top" secondItem="3tn-OF-cDs" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Vxt-me-8Jc"/>
+                            <constraint firstAttribute="bottom" secondItem="EI3-8T-ejk" secondAttribute="bottom" constant="7" id="Z43-2g-EDU"/>
+                            <constraint firstItem="4nf-F4-hTP" firstAttribute="leading" secondItem="3tn-OF-cDs" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nvU-2b-k19"/>
+                            <constraint firstItem="EI3-8T-ejk" firstAttribute="centerX" secondItem="3tn-OF-cDs" secondAttribute="centerX" type="default" id="zaz-w9-JD7"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oat-nD-na9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="158" y="-229"/>
+        </scene>
+        <!--Auto Complete View Controller-->
+        <scene sceneID="uhB-r6-ERQ">
+            <objects>
+                <viewController id="FTW-LI-aPu" customClass="AutoCompleteViewController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zVN-ec-fgR">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="221"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BBD-eR-WA0">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onTextChanged:" destination="FTW-LI-aPu" eventType="editingChanged" id="qhS-hU-XG1"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UXX-iY-iM9">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="152" id="lDo-bd-naQ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="FTW-LI-aPu" id="s9l-dI-QcZ"/>
+                                    <outlet property="delegate" destination="FTW-LI-aPu" id="ffO-pa-xuJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BBD-eR-WA0" firstAttribute="leading" secondItem="zVN-ec-fgR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0Nt-0b-IdW"/>
+                            <constraint firstAttribute="trailing" secondItem="UXX-iY-iM9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0tg-9z-kTT"/>
+                            <constraint firstAttribute="trailing" secondItem="BBD-eR-WA0" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="SFB-B5-ENO"/>
+                            <constraint firstItem="UXX-iY-iM9" firstAttribute="leading" secondItem="zVN-ec-fgR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fS0-3H-RC4"/>
+                            <constraint firstAttribute="bottom" secondItem="UXX-iY-iM9" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="jFC-HK-oGs"/>
+                            <constraint firstItem="BBD-eR-WA0" firstAttribute="top" secondItem="zVN-ec-fgR" secondAttribute="top" constant="20" symbolic="YES" type="default" id="y1L-fb-AQB"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="mTableView" destination="UXX-iY-iM9" id="4Bh-0M-WG0"/>
+                        <outlet property="mTextField" destination="BBD-eR-WA0" id="Rg9-IP-zG2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQh-9M-dKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="289" y="-641"/>
+        </scene>
     </scenes>
+    <classes>
+        <class className="AutoCompleteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AutoCompleteViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onTextChanged:"/>
+                <relationship kind="outlet" name="mTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="mTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="IndicatorViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IndicatorViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changePage:"/>
+                <relationship kind="outlet" name="mPageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="mScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="JobDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onBackButtonPressed:"/>
+                <relationship kind="outlet" name="mJobDetail" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mJobTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ResultViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onBackButtonPressed:"/>
+                <relationship kind="action" name="onNextButtonPressed:"/>
+                <relationship kind="outlet" name="mBackButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="mNextButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="SearchTextFieldViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchTextFieldViewController.h"/>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onFinishedButtonPressed:"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onButtonClicked:"/>
+                <relationship kind="outlet" name="mButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mCareerACTextField" candidateClass="UIView"/>
+                <relationship kind="outlet" name="mLocationTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -28,6 +28,7 @@
 		3F6DD2EF17C0FF08007C34FA /* JobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2EE17C0FF08007C34FA /* JobDetailViewController.m */; };
 		3F6DD2F217C10271007C34FA /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2F117C10271007C34FA /* SearchViewController.m */; };
 		3FF0676E17E62A8E00FB8104 /* IndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0676D17E62A8E00FB8104 /* IndicatorViewController.m */; };
+		3FF0677117E636DA00FB8104 /* SearchTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0677017E636DA00FB8104 /* SearchTextFieldViewController.m */; };
 		611F20F817CB2CAD0065CBD2 /* SearchContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 611F20F617CB2CAD0065CBD2 /* SearchContentViewController.m */; };
 		611F20F917CB2CAD0065CBD2 /* SearchContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611F20F717CB2CAD0065CBD2 /* SearchContentViewController.xib */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,8 @@
 		3F6DD2F117C10271007C34FA /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		3FF0676C17E62A8E00FB8104 /* IndicatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicatorViewController.h; sourceTree = "<group>"; };
 		3FF0676D17E62A8E00FB8104 /* IndicatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndicatorViewController.m; sourceTree = "<group>"; };
+		3FF0676F17E636DA00FB8104 /* SearchTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTextFieldViewController.h; sourceTree = "<group>"; };
+		3FF0677017E636DA00FB8104 /* SearchTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTextFieldViewController.m; sourceTree = "<group>"; };
 		611F20F517CB2CAD0065CBD2 /* SearchContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchContentViewController.h; sourceTree = "<group>"; };
 		611F20F617CB2CAD0065CBD2 /* SearchContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchContentViewController.m; sourceTree = "<group>"; };
 		611F20F717CB2CAD0065CBD2 /* SearchContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchContentViewController.xib; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				611F20F717CB2CAD0065CBD2 /* SearchContentViewController.xib */,
 				3F58003217E5E89000040821 /* AutoCompleteViewController.h */,
 				3F58003317E5E89000040821 /* AutoCompleteViewController.m */,
+				3FF0676F17E636DA00FB8104 /* SearchTextFieldViewController.h */,
+				3FF0677017E636DA00FB8104 /* SearchTextFieldViewController.m */,
 			);
 			path = CareerSearcher;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				611F20F817CB2CAD0065CBD2 /* SearchContentViewController.m in Sources */,
 				3F58003417E5E89000040821 /* AutoCompleteViewController.m in Sources */,
 				3FF0676E17E62A8E00FB8104 /* IndicatorViewController.m in Sources */,
+				3FF0677117E636DA00FB8104 /* SearchTextFieldViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
