@@ -25,5 +25,6 @@
 @property (strong, nonatomic) NSMutableArray *mControllerArray;
 @property (strong, nonatomic) UIView *lineView;
 @property (strong, nonatomic) NSMutableArray *mTabButtonArray;
+- (IBAction)changePage:(id)sender;
 
 @end

@@ -64,7 +64,7 @@
     self.mScrollView.scrollsToTop = NO;
     self.mScrollView.delegate = self;
     
-    self.mPageControl.numberOfPages = 4;
+    self.mPageControl.numberOfPages = mTabButtonNum;
     self.mPageControl.currentPage = 0;
     
     // pages are created on demand
@@ -107,6 +107,10 @@
 
 -(void) onTabButtonClicked:(UIButton*)button {
     NSLog(@"on clicked: %d", button.tag);
+    
+    mPageControl.currentPage = button.tag;
+    [self gotoPage:YES];
+    
 }
 
 - (void)gotoPage:(BOOL)animated
@@ -184,8 +188,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [scrollView setContentOffset:
-        CGPointMake(scrollView.contentOffset.x,
-                    -scrollView.frame.origin.y + scrollView.contentSize.height - scrollView.frame.size.height)];
+        CGPointMake(scrollView.contentOffset.x, 0)];
     
     lineView.frame = CGRectSetPos(lineView.frame,
                                   PADDING+scrollView.contentOffset.x*(mTabButtonWidth + PADDING)/280,

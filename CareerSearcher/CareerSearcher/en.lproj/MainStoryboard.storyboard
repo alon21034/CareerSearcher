@@ -412,27 +412,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDq-tp-8fy">
-                                <subviews>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9A2-Sh-SJn">
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </pageControl>
-                                </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="9A2-Sh-SJn" firstAttribute="bottom" secondItem="KDq-tp-8fy" secondAttribute="bottom" type="default" id="hTJ-zr-N92"/>
-                                    <constraint firstItem="9A2-Sh-SJn" firstAttribute="trailing" secondItem="KDq-tp-8fy" secondAttribute="trailing" type="default" id="jN4-rk-z6l"/>
-                                    <constraint firstItem="9A2-Sh-SJn" firstAttribute="top" secondItem="KDq-tp-8fy" secondAttribute="top" constant="397" id="k1w-b1-4CH"/>
-                                    <constraint firstItem="9A2-Sh-SJn" firstAttribute="centerX" secondItem="KDq-tp-8fy" secondAttribute="centerX" type="default" id="qid-UZ-TWZ"/>
-                                    <constraint firstItem="9A2-Sh-SJn" firstAttribute="leading" secondItem="KDq-tp-8fy" secondAttribute="leading" type="default" id="yu9-tD-q0N"/>
-                                </constraints>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9A2-Sh-SJn">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="286" id="FbH-t4-AG7"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changePage:" destination="7fG-qC-QQ9" eventType="valueChanged" id="B1r-0l-e4W"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="KDq-tp-8fy" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="I9b-cu-Q81"/>
-                            <constraint firstAttribute="bottom" secondItem="KDq-tp-8fy" secondAttribute="bottom" constant="15" id="NvU-kC-NrS"/>
-                            <constraint firstItem="KDq-tp-8fy" firstAttribute="top" secondItem="EQi-lu-Tgy" secondAttribute="top" constant="20" symbolic="YES" type="default" id="aoE-wD-mnG"/>
-                            <constraint firstItem="KDq-tp-8fy" firstAttribute="leading" secondItem="EQi-lu-Tgy" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dOc-fC-v5B"/>
+                            <constraint firstItem="9A2-Sh-SJn" firstAttribute="bottom" secondItem="EQi-lu-Tgy" secondAttribute="bottom" type="default" id="5tI-bi-Clx"/>
+                            <constraint firstItem="KDq-tp-8fy" firstAttribute="trailing" secondItem="EQi-lu-Tgy" secondAttribute="trailing" type="default" id="HTs-4w-0vB"/>
+                            <constraint firstAttribute="bottom" secondItem="KDq-tp-8fy" secondAttribute="bottom" constant="33" id="YUc-t4-Sd4"/>
+                            <constraint firstItem="9A2-Sh-SJn" firstAttribute="leading" secondItem="EQi-lu-Tgy" secondAttribute="leading" type="default" id="hfR-ts-WjS"/>
+                            <constraint firstItem="KDq-tp-8fy" firstAttribute="top" secondItem="EQi-lu-Tgy" secondAttribute="top" constant="40" id="kPw-wd-DU3"/>
+                            <constraint firstItem="KDq-tp-8fy" firstAttribute="leading" secondItem="EQi-lu-Tgy" secondAttribute="leading" type="default" id="kjg-2E-F4w"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -445,68 +444,6 @@
             <point key="canvasLocation" x="682" y="-367"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AutoCompleteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AutoCompleteViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="onTextChanged:"/>
-                <relationship kind="outlet" name="mTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="mTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="IndicatorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IndicatorViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changePage:"/>
-                <relationship kind="outlet" name="mPageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="mScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="JobDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="onBackButtonPressed:"/>
-                <relationship kind="outlet" name="mJobDetail" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mJobTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ResultViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="onBackButtonPressed:"/>
-                <relationship kind="action" name="onNextButtonPressed:"/>
-                <relationship kind="outlet" name="mBackButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="mNextButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="onAddButtonClicked:"/>
-                <relationship kind="action" name="onFinishedButtonPressed:"/>
-                <relationship kind="action" name="onTextChanged:"/>
-                <relationship kind="outlet" name="mAddButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mButton1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mButton2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mButton3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mCareerTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="mLocationTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="mTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="onButtonClicked:"/>
-                <relationship kind="outlet" name="mButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mCareerACTextField" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mLocationTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
