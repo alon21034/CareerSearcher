@@ -17,7 +17,7 @@
 		3F6DD2BA17C0B6C3007C34FA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2B917C0B6C3007C34FA /* Default.png */; };
 		3F6DD2BC17C0B6C3007C34FA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2BB17C0B6C3007C34FA /* Default@2x.png */; };
 		3F6DD2BE17C0B6C3007C34FA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2BD17C0B6C3007C34FA /* Default-568h@2x.png */; };
-		3F6DD2C117C0B6C3007C34FA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2BF17C0B6C3007C34FA /* MainStoryboard.storyboard */; };
+		3F6DD2C117C0B6C3007C34FA /* 	.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2BF17C0B6C3007C34FA /* 	.storyboard */; };
 		3F6DD2C417C0B6C3007C34FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2C317C0B6C3007C34FA /* ViewController.m */; };
 		3F6DD2CC17C0B6C3007C34FA /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DD2CB17C0B6C3007C34FA /* SenTestingKit.framework */; };
 		3F6DD2CD17C0B6C3007C34FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DD2A717C0B6C3007C34FA /* UIKit.framework */; };
@@ -59,7 +59,7 @@
 		3F6DD2B917C0B6C3007C34FA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3F6DD2BB17C0B6C3007C34FA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		3F6DD2BD17C0B6C3007C34FA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		3F6DD2C017C0B6C3007C34FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		3F6DD2C017C0B6C3007C34FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/\t.storyboard"; sourceTree = "<group>"; };
 		3F6DD2C217C0B6C3007C34FA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3F6DD2C317C0B6C3007C34FA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3F6DD2CA17C0B6C3007C34FA /* CareerSearcherTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareerSearcherTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,7 +146,7 @@
 				3F6DD2B717C0B6C3007C34FA /* AppDelegate.m */,
 				3F6DD2C217C0B6C3007C34FA /* ViewController.h */,
 				3F6DD2C317C0B6C3007C34FA /* ViewController.m */,
-				3F6DD2BF17C0B6C3007C34FA /* MainStoryboard.storyboard */,
+				3F6DD2BF17C0B6C3007C34FA /* 	.storyboard */,
 				3F6DD2EA17C0EC80007C34FA /* ResultViewController.h */,
 				3F6DD2EB17C0EC80007C34FA /* ResultViewController.m */,
 				3F6DD2AE17C0B6C3007C34FA /* Supporting Files */,
@@ -273,7 +273,7 @@
 				3F6DD2BA17C0B6C3007C34FA /* Default.png in Resources */,
 				3F6DD2BC17C0B6C3007C34FA /* Default@2x.png in Resources */,
 				3F6DD2BE17C0B6C3007C34FA /* Default-568h@2x.png in Resources */,
-				3F6DD2C117C0B6C3007C34FA /* MainStoryboard.storyboard in Resources */,
+				3F6DD2C117C0B6C3007C34FA /* 	.storyboard in Resources */,
 				611F20F917CB2CAD0065CBD2 /* SearchContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,12 +349,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		3F6DD2BF17C0B6C3007C34FA /* MainStoryboard.storyboard */ = {
+		3F6DD2BF17C0B6C3007C34FA /* 	.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3F6DD2C017C0B6C3007C34FA /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = "\t.storyboard";
 			sourceTree = "<group>";
 		};
 		3F6DD2D417C0B6C3007C34FA /* InfoPlist.strings */ = {
