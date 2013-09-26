@@ -17,7 +17,7 @@
 		3F6DD2BA17C0B6C3007C34FA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2B917C0B6C3007C34FA /* Default.png */; };
 		3F6DD2BC17C0B6C3007C34FA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2BB17C0B6C3007C34FA /* Default@2x.png */; };
 		3F6DD2BE17C0B6C3007C34FA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2BD17C0B6C3007C34FA /* Default-568h@2x.png */; };
-		3F6DD2C117C0B6C3007C34FA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2BF17C0B6C3007C34FA /* MainStoryboard.storyboard */; };
+		3F6DD2C117C0B6C3007C34FA /* 	.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DD2BF17C0B6C3007C34FA /* 	.storyboard */; };
 		3F6DD2C417C0B6C3007C34FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2C317C0B6C3007C34FA /* ViewController.m */; };
 		3F6DD2CC17C0B6C3007C34FA /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DD2CB17C0B6C3007C34FA /* SenTestingKit.framework */; };
 		3F6DD2CD17C0B6C3007C34FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DD2A717C0B6C3007C34FA /* UIKit.framework */; };
@@ -28,6 +28,7 @@
 		3F6DD2EF17C0FF08007C34FA /* JobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2EE17C0FF08007C34FA /* JobDetailViewController.m */; };
 		3F6DD2F217C10271007C34FA /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DD2F117C10271007C34FA /* SearchViewController.m */; };
 		3FF0676E17E62A8E00FB8104 /* IndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0676D17E62A8E00FB8104 /* IndicatorViewController.m */; };
+		3FF0677117E636DA00FB8104 /* SearchTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0677017E636DA00FB8104 /* SearchTextFieldViewController.m */; };
 		611F20F817CB2CAD0065CBD2 /* SearchContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 611F20F617CB2CAD0065CBD2 /* SearchContentViewController.m */; };
 		611F20F917CB2CAD0065CBD2 /* SearchContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611F20F717CB2CAD0065CBD2 /* SearchContentViewController.xib */; };
 /* End PBXBuildFile section */
@@ -58,7 +59,7 @@
 		3F6DD2B917C0B6C3007C34FA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3F6DD2BB17C0B6C3007C34FA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		3F6DD2BD17C0B6C3007C34FA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		3F6DD2C017C0B6C3007C34FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		3F6DD2C017C0B6C3007C34FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/\t.storyboard"; sourceTree = "<group>"; };
 		3F6DD2C217C0B6C3007C34FA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3F6DD2C317C0B6C3007C34FA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3F6DD2CA17C0B6C3007C34FA /* CareerSearcherTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareerSearcherTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +76,8 @@
 		3F6DD2F117C10271007C34FA /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		3FF0676C17E62A8E00FB8104 /* IndicatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicatorViewController.h; sourceTree = "<group>"; };
 		3FF0676D17E62A8E00FB8104 /* IndicatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndicatorViewController.m; sourceTree = "<group>"; };
+		3FF0676F17E636DA00FB8104 /* SearchTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTextFieldViewController.h; sourceTree = "<group>"; };
+		3FF0677017E636DA00FB8104 /* SearchTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTextFieldViewController.m; sourceTree = "<group>"; };
 		611F20F517CB2CAD0065CBD2 /* SearchContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchContentViewController.h; sourceTree = "<group>"; };
 		611F20F617CB2CAD0065CBD2 /* SearchContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchContentViewController.m; sourceTree = "<group>"; };
 		611F20F717CB2CAD0065CBD2 /* SearchContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchContentViewController.xib; sourceTree = "<group>"; };
@@ -143,7 +146,7 @@
 				3F6DD2B717C0B6C3007C34FA /* AppDelegate.m */,
 				3F6DD2C217C0B6C3007C34FA /* ViewController.h */,
 				3F6DD2C317C0B6C3007C34FA /* ViewController.m */,
-				3F6DD2BF17C0B6C3007C34FA /* MainStoryboard.storyboard */,
+				3F6DD2BF17C0B6C3007C34FA /* 	.storyboard */,
 				3F6DD2EA17C0EC80007C34FA /* ResultViewController.h */,
 				3F6DD2EB17C0EC80007C34FA /* ResultViewController.m */,
 				3F6DD2AE17C0B6C3007C34FA /* Supporting Files */,
@@ -156,6 +159,8 @@
 				611F20F717CB2CAD0065CBD2 /* SearchContentViewController.xib */,
 				3F58003217E5E89000040821 /* AutoCompleteViewController.h */,
 				3F58003317E5E89000040821 /* AutoCompleteViewController.m */,
+				3FF0676F17E636DA00FB8104 /* SearchTextFieldViewController.h */,
+				3FF0677017E636DA00FB8104 /* SearchTextFieldViewController.m */,
 			);
 			path = CareerSearcher;
 			sourceTree = "<group>";
@@ -268,7 +273,7 @@
 				3F6DD2BA17C0B6C3007C34FA /* Default.png in Resources */,
 				3F6DD2BC17C0B6C3007C34FA /* Default@2x.png in Resources */,
 				3F6DD2BE17C0B6C3007C34FA /* Default-568h@2x.png in Resources */,
-				3F6DD2C117C0B6C3007C34FA /* MainStoryboard.storyboard in Resources */,
+				3F6DD2C117C0B6C3007C34FA /* 	.storyboard in Resources */,
 				611F20F917CB2CAD0065CBD2 /* SearchContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +318,7 @@
 				611F20F817CB2CAD0065CBD2 /* SearchContentViewController.m in Sources */,
 				3F58003417E5E89000040821 /* AutoCompleteViewController.m in Sources */,
 				3FF0676E17E62A8E00FB8104 /* IndicatorViewController.m in Sources */,
+				3FF0677117E636DA00FB8104 /* SearchTextFieldViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,12 +349,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		3F6DD2BF17C0B6C3007C34FA /* MainStoryboard.storyboard */ = {
+		3F6DD2BF17C0B6C3007C34FA /* 	.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3F6DD2C017C0B6C3007C34FA /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = "\t.storyboard";
 			sourceTree = "<group>";
 		};
 		3F6DD2D417C0B6C3007C34FA /* InfoPlist.strings */ = {
