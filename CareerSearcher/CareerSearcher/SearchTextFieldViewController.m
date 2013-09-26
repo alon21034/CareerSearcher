@@ -1,18 +1,18 @@
 //
-//  SearchViewController.m
+//  SearchTextFieldViewController.m
 //  CareerSearcher
 //
-//  Created by MD631 on 13/8/18.
+//  Created by MD631 on 13/9/16.
 //  Copyright (c) 2013年 MD631. All rights reserved.
 //
 
-#import "SearchViewController.h"
+#import "SearchTextFieldViewController.h"
 
-@interface SearchViewController ()
+@interface SearchTextFieldViewController ()
 
 @end
 
-@implementation SearchViewController
+@implementation SearchTextFieldViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,17 +27,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)onFinishedButtonPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
