@@ -39,21 +39,21 @@
     
     mListData = [[NSMutableArray alloc] init];
     mJobDetailArr = [[NSMutableArray alloc] init];
-    NSString *myUrlString = @"http://54.251.103.118/MobileJobSearchAPI/JobCatAreaReturnJob.do";
-    NSString *body =  [NSString stringWithFormat:@"jobTitle=%@&area=%@", @"aaa", @"bbb"];
+    NSString *myUrlString = @"http://54.251.103.118/MobileJobSearchAPI/JobCatAreaReturnJob.do?jobCat=2002001012&area=%E5%8F%B0%E5%8C%97%E5%B8%82";
+    //NSString *body =  [NSString stringWithFormat:@"jobCat=%@&area=%@", @"2002001012", @"%E5%8F%B0%E5%8C%97%E5%B8%82"];
     NSURL *myUrl = [NSURL URLWithString:myUrlString];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:myUrl];
     [request setTimeoutInterval:30.0f];
     [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    //[request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     
     NSError *error = nil;
     NSHTTPURLResponse *response = nil;
     data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"json = %@", ret);
+    NSLog(@"Json = %@", ret);
     
     NSArray *jobList = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
     
