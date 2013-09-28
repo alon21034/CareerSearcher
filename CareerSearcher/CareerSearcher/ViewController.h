@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AutoCompleteViewController.h"
+
 @interface ViewController : UIViewController
+
+@property (strong, nonatomic) AutoCompleteViewController *vc;
+@property (strong, nonatomic) IBOutlet UIButton *mButton;
+- (IBAction)onButtonClicked:(id)sender;
 
 @end
