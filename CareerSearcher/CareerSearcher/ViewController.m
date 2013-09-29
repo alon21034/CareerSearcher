@@ -37,8 +37,8 @@
 
 - (IBAction)onButtonClicked:(id)sender {
     ResultViewController *view= [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
-    view.mTabNum = 2;
-    view.stringFromHomePage = @"aaa";
+    view.mTabNum = 1;
+    view.stringFromHomePage = [vc getText];
     [self presentViewController:view animated:YES completion:nil];
 }
 

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EditStringViewController.h"
 
-@interface ResultViewController : UIViewController <UIScrollViewDelegate>
+@interface ResultViewController : UIViewController <UIScrollViewDelegate, EditStringDelegate>
 
 @property (assign, nonatomic) int mTabNum;
 @property (assign, nonatomic) NSString* stringFromHomePage;
@@ -19,5 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *mScrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *mPageControll;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *mNextButton;
+- (IBAction)onNextButtonClicked:(id)sender;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ResultViewController.h"
 #import "SearchContentViewController.h"
+#import "EditStringViewController.h"
 
 @interface ResultViewController ()
 
@@ -25,6 +26,7 @@ int mTabButtonWidth;
 int mTabButtonHeight;
 const int PADDING = 5;
 const int MAX_NUM = 4;
+const int BAR_HEIGHT = 44;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -66,8 +68,8 @@ const int MAX_NUM = 4;
     self.mScrollView.pagingEnabled = YES;
     
     // (TODO) shouldn't use const here.
-    self.mScrollView.contentSize = CGSizeMake(280 * 4, 420);
-    mTabButtonWidth = 80;
+    self.mScrollView.contentSize = CGSizeMake(280 * mTabNum, 420);
+    mTabButtonWidth = 120;
     mTabButtonHeight = 30;
     
     self.mScrollView.showsHorizontalScrollIndicator = YES;
@@ -81,17 +83,15 @@ const int MAX_NUM = 4;
     // start to draw tab button and bottom line
     NSLog(@"tab num: %d", mTabNum);
     
-    mTabButtonWidth = 80;
-    mTabButtonHeight = 30;
-    
     for (int i = 0 ; i < mTabNum ; i++) {
-        [self addButton:[NSString stringWithFormat:@"title:%d", i]
-                       :PADDING+i*(mTabButtonWidth + PADDING) :PADDING
+        [self addButton:[mSearchTermList objectAtIndex:i]
+                       :PADDING+i*(mTabButtonWidth + PADDING) :BAR_HEIGHT + PADDING
                        :mTabButtonWidth :mTabButtonHeight :i];
     }
     
+    // bottom line
     lineView = [[UIView alloc] initWithFrame:
-                CGRectMake(PADDING, mTabButtonHeight, mTabButtonWidth, PADDING)];
+                CGRectMake(PADDING, BAR_HEIGHT + mTabButtonHeight, mTabButtonWidth, PADDING)];
     lineView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:lineView];
 }
@@ -123,7 +123,7 @@ const int MAX_NUM = 4;
 
 - (void)loadScrollViewWithPage:(NSUInteger)page :(NSString*) str;
 {
-    if (page >= 4)
+    if (page >= mTabNum)
         return;
     
     // replace the placeholder if necessary
@@ -167,6 +167,64 @@ const int MAX_NUM = 4;
         [self loadScrollViewWithPage:page + 1 :[mSearchTermList objectAtIndex:page+1]];
     
     // a possible optimization would be to unload the views+controllers which are no longer visible
+}
+
+- (IBAction)onNextButtonClicked:(id)sender {
+    EditStringViewController *view = [[EditStringViewController alloc] initWithNibName:@"EditStringViewController" bundle:nil];
+    view.mStringArray = mSearchTermList;
+    view.mDelegate = self;
+    [self presentViewController:view animated:YES completion:nil];
+}
+
+- (void) onFinished:(NSMutableArray *)arr {
+    mTabNum = 0;
+    for (int i = 0 ; i < arr.count ; i++) {
+        [mSearchTermList replaceObjectAtIndex:i withObject:[arr objectAtIndex:i]];
+        if ([mSearchTermList objectAtIndex:i] != [NSNull null])
+            mTabNum++;
+    }
+    
+    NSMutableArray *controllers = [[NSMutableArray alloc] init];
+    mTabButtonArray = [[NSMutableArray alloc] init];
+    
+    for (NSUInteger i = 0; i < mTabNum; i++)
+    {
+		[controllers addObject:[NSNull null]];
+        [mTabButtonArray addObject:[NSNull null]];
+    }
+    self.mControllerArray = controllers;
+    
+    // a page is the width of the scroll view
+    self.mScrollView.pagingEnabled = YES;
+    
+    // (TODO) shouldn't use const here.
+    self.mScrollView.contentSize = CGSizeMake(280 * mTabNum, 420);
+    mTabButtonWidth = 120;
+    mTabButtonHeight = 30;
+    
+    self.mScrollView.showsHorizontalScrollIndicator = YES;
+    self.mScrollView.showsVerticalScrollIndicator = NO;
+    self.mScrollView.scrollsToTop = NO;
+    self.mScrollView.delegate = self;
+    
+    self.mPageControll.numberOfPages = mTabNum;
+    self.mPageControll.currentPage = 0;
+    
+    // start to draw tab button and bottom line
+    NSLog(@"tab num: %d", mTabNum);
+    
+    for (int i = 0 ; i < mTabNum ; i++) {
+        [self addButton:[mSearchTermList objectAtIndex:i]
+                       :PADDING+i*(mTabButtonWidth + PADDING) :BAR_HEIGHT + PADDING
+                       :mTabButtonWidth :mTabButtonHeight :i];
+    }
+
+    // bottom line
+    lineView = [[UIView alloc] initWithFrame:
+                CGRectMake(PADDING, BAR_HEIGHT + mTabButtonHeight, mTabButtonWidth, PADDING)];
+    lineView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:lineView];
+
 }
 
 @end
