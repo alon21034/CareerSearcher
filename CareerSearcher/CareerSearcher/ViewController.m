@@ -39,6 +39,7 @@
     ResultViewController *view= [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
     view.mTabNum = 1;
     view.stringFromHomePage = [vc getText];
+    view.indexFromHomePage = [vc getIndex];
     [self presentViewController:view animated:YES completion:nil];
 }
 

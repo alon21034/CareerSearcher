@@ -13,10 +13,12 @@
 
 @property (assign, nonatomic) int mTabNum;
 @property (assign, nonatomic) NSString* stringFromHomePage;
+@property (assign, nonatomic) NSString* indexFromHomePage;
 @property (strong, nonatomic) NSMutableArray* mControllerArray;
 @property (strong, nonatomic) NSMutableArray* mTabButtonArray;
 @property (strong, nonatomic) UIView *lineView;
 @property (strong, nonatomic) NSMutableArray* mSearchTermList;
+@property (strong, nonatomic) NSMutableArray* mSearchIndexList;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *mScrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *mPageControll;

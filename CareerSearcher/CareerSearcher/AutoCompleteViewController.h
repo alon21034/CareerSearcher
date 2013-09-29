@@ -14,11 +14,15 @@
 @property (strong, nonatomic) IBOutlet UITableView *mTableView;
 
 @property (strong, nonatomic) NSArray* mListData;
+@property (strong, nonatomic) NSArray* mIndexData;
+
+@property (weak, nonatomic) NSMutableString* jobIndex;
 
 - (IBAction)onTextChanged:(id)sender;
 
 - (void) setText:(NSString*)str;
 - (void) setHint:(NSString*)str;
 - (NSString*) getText;
+- (NSString*) getIndex;
 
 @end

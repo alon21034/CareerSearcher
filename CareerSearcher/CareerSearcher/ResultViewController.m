@@ -21,12 +21,16 @@
 @synthesize mTabButtonArray;
 @synthesize mPageControll;
 @synthesize mSearchTermList;
+@synthesize mSearchIndexList;
 
 int mTabButtonWidth;
 int mTabButtonHeight;
 const int PADDING = 5;
 const int MAX_NUM = 4;
 const int BAR_HEIGHT = 44;
+
+const int PAGE_WIDTH = 320;
+const int PAGE_HEIGHT = 472;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,14 +48,18 @@ const int BAR_HEIGHT = 44;
     
     // init search term array
     mSearchTermList = [[NSMutableArray alloc] init];
+    mSearchIndexList = [[NSMutableArray alloc] init];
     
     for (int i = 0 ; i < MAX_NUM; i++) {
         [mSearchTermList addObject:[NSNull null]];
+        [mSearchIndexList addObject:[NSNull null]];
     }
     
     NSLog(@"start search: %@", _stringFromHomePage);
-    if (_stringFromHomePage != NULL)
+    if (_stringFromHomePage != NULL) {
         [mSearchTermList replaceObjectAtIndex:0 withObject:_stringFromHomePage];
+        [mSearchIndexList replaceObjectAtIndex:0 withObject:_indexFromHomePage];
+    }
     
     // create viewcontroller for each page.
     NSMutableArray *controllers = [[NSMutableArray alloc] init];
@@ -68,7 +76,7 @@ const int BAR_HEIGHT = 44;
     self.mScrollView.pagingEnabled = YES;
     
     // (TODO) shouldn't use const here.
-    self.mScrollView.contentSize = CGSizeMake(280 * mTabNum, 420);
+    self.mScrollView.contentSize = CGSizeMake(PAGE_WIDTH * mTabNum, PAGE_HEIGHT);
     mTabButtonWidth = 120;
     mTabButtonHeight = 30;
     
@@ -94,6 +102,9 @@ const int BAR_HEIGHT = 44;
                 CGRectMake(PADDING, BAR_HEIGHT + mTabButtonHeight, mTabButtonWidth, PADDING)];
     lineView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:lineView];
+    
+    
+    [self loadScrollViewWithPage:0 :[mSearchTermList objectAtIndex:0] :[mSearchIndexList objectAtIndex:0]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -121,7 +132,7 @@ const int BAR_HEIGHT = 44;
 
 #pragma mark ScrollViewDelegate
 
-- (void)loadScrollViewWithPage:(NSUInteger)page :(NSString*) str;
+- (void)loadScrollViewWithPage:(NSUInteger)page :(NSString*) str :(NSString*) index;
 {
     if (page >= mTabNum)
         return;
@@ -130,7 +141,8 @@ const int BAR_HEIGHT = 44;
     SearchContentViewController *controller = [self.mControllerArray objectAtIndex:page];
     if ((NSNull *)controller == [NSNull null])
     {
-        controller = [[SearchContentViewController alloc] initWithString:str];
+        controller = [[SearchContentViewController alloc] initWithString:str :index];
+        controller.jobIndex = index;
         [self.mControllerArray replaceObjectAtIndex:page withObject:controller];
     }
     
@@ -138,7 +150,7 @@ const int BAR_HEIGHT = 44;
     if (controller.view.superview == nil)
     {
         CGRect frame = self.mScrollView.frame;
-        frame.origin.x = 280 * page;
+        frame.origin.x = PAGE_WIDTH * page;
         frame.origin.y = 0;
         controller.view.frame = frame;
         
@@ -159,12 +171,12 @@ const int BAR_HEIGHT = 44;
     
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
     if (page > 0)
-        [self loadScrollViewWithPage:page - 1 :[mSearchTermList objectAtIndex:page-1]];
+        [self loadScrollViewWithPage:page - 1 :[mSearchTermList objectAtIndex:page-1] :[mSearchIndexList objectAtIndex:page-1]];
     
-    [self loadScrollViewWithPage:page :[mSearchTermList objectAtIndex:page]];
+    [self loadScrollViewWithPage:page :[mSearchTermList objectAtIndex:page] :[mSearchIndexList objectAtIndex:page]];
     
     if (page < mTabNum)
-        [self loadScrollViewWithPage:page + 1 :[mSearchTermList objectAtIndex:page+1]];
+        [self loadScrollViewWithPage:page + 1 :[mSearchTermList objectAtIndex:page+1] :[mSearchIndexList objectAtIndex:page+1]];
     
     // a possible optimization would be to unload the views+controllers which are no longer visible
 }
@@ -198,7 +210,7 @@ const int BAR_HEIGHT = 44;
     self.mScrollView.pagingEnabled = YES;
     
     // (TODO) shouldn't use const here.
-    self.mScrollView.contentSize = CGSizeMake(280 * mTabNum, 420);
+    self.mScrollView.contentSize = CGSizeMake(PAGE_WIDTH * mTabNum, PAGE_HEIGHT);
     mTabButtonWidth = 120;
     mTabButtonHeight = 30;
     

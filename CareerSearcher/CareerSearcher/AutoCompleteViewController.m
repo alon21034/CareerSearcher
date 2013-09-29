@@ -17,6 +17,7 @@
 @synthesize mTextField;
 @synthesize mTableView;
 @synthesize mListData;
+@synthesize mIndexData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,6 +65,8 @@
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
     
     mListData = dic.allKeys;
+    mIndexData = dic.allValues;
+    
     [mTableView reloadData];
     
     if (mTextField.text.length == 0) {
@@ -89,6 +92,10 @@
 
 - (NSString*) getText {
     return mTextField.text;
+}
+
+- (NSString*) getIndex {
+    return _jobIndex;
 }
 
 # pragma mark TableView
@@ -118,6 +125,7 @@
 {
     NSLog(@"%ld",(long)indexPath.row);
     [mTextField setText:[mListData objectAtIndex:indexPath.row]];
+    _jobIndex = [mIndexData objectAtIndex:indexPath.row];
     mTableView.hidden = YES;
 }
 
