@@ -18,6 +18,7 @@
 @synthesize mJobDetailArr;
 @synthesize data;
 @synthesize jobIndex;
+@synthesize mDelegate;
 
 - (id)initWithString:(NSString*) str :(NSString*)index
 {
@@ -111,7 +112,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"select: %d", indexPath.row);
-//    [mDelegate selectJob:data :indexPath.row];
+    [mDelegate onItemSelected:data :indexPath.row];
 }
 
 @end

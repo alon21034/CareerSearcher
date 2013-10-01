@@ -9,6 +9,7 @@
 #import "ResultViewController.h"
 #import "SearchContentViewController.h"
 #import "EditStringViewController.h"
+#import "JobDetailViewController.h"
 
 @interface ResultViewController ()
 
@@ -153,6 +154,7 @@ const int PAGE_HEIGHT = 472;
         frame.origin.x = PAGE_WIDTH * page;
         frame.origin.y = 0;
         controller.view.frame = frame;
+        controller.mDelegate = self;
         
         [self addChildViewController:controller];
         [self.mScrollView addSubview:controller.view];
@@ -238,5 +240,18 @@ const int PAGE_HEIGHT = 472;
     [self.view addSubview:lineView];
 
 }
+
+#pragma mark SearchContentDelegate
+
+- (void) onItemSelected:(NSData *)data :(int) index {
+    NSArray *jobList = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
+    
+    
+    NSDictionary *item = [jobList objectAtIndex:index];
+    
+    JobDetailViewController *view = [[JobDetailViewController alloc] initWithNibName:@"JobDetailViewController" bundle:nil];
+    [self presentViewController:view animated:YES completion:nil];
+}
+
 
 @end

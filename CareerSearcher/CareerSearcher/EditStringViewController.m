@@ -46,20 +46,20 @@ CGPoint startPoint;
     mLabelArray = [[NSMutableArray alloc] init];
     [mLabelArray addObject:_mLabel1];
     [mLabelArray addObject:_mLabel2];
-
+    [mLabelArray addObject:_mLabel3];
+    [mLabelArray addObject:_mLabel4];
+    
     _mLabel1.tag = 0;
     _mLabel2.tag = 1;
     _mLabel3.tag = 2;
     _mLabel4.tag = 3;
 
+    _mLabel1.numberOfLines = 2;
+    
     for (int i = 0 ; i < 1 ; i++) {
         if ([mStringArray objectAtIndex:i] != nil) {
             [[mLabelArray objectAtIndex:i] setText:[mStringArray objectAtIndex:i]];
         }
-    }
-
-    for (int i = 0 ; i < 4 ; i++) {
-        //.UILabel *label = [[UILabel alloc] init];
     }
 
 
@@ -175,6 +175,41 @@ CGPoint startPoint;
 
 - (void) arrangeLabel {
     NSLog(@"re-arrange");
+    
+//    for (int i = 0 ; i < 4 ; i++) {
+//        for (int j = 0 ; j < 4 ; j++) {
+//            UILabel *label1 = [mLabelArray objectAtIndex:i];
+//            UILabel *label2 = [mLabelArray objectAtIndex:j];
+//            
+//            if (label1.center.x > label2.center.x) {
+//                NSString *temp = [mStringArray objectAtIndex:i];
+//                [mStringArray replaceObjectAtIndex:i withObject:[mStringArray objectAtIndex:j]];
+//                [mStringArray replaceObjectAtIndex:j withObject:temp];
+//            }
+//        }
+//    }
+    
+    for (int i = 0 ; i < 4 ; i++) {
+        UILabel *label = [mLabelArray objectAtIndex:i];
+        label.center = CGPointMake(60+90*i, 120);
+    }
+    
+    [self setText];
+}
+
+- (void) setText {
+    for (int i = 0 ; i < 4 ; i++) {
+        UILabel *label = [mLabelArray objectAtIndex:i];
+        
+        if ([mStringArray objectAtIndex:i] != [NSNull null]) {
+            label.text = [mStringArray objectAtIndex:i];
+            label.hidden = NO;
+        } else {
+            label.text = @"";
+            label.hidden = YES;
+        }
+        
+    }
 }
 
 # pragma mark TableView

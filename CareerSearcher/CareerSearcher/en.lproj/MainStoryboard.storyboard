@@ -12,12 +12,6 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sWG-5s-9yo">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="FT5-5e-SpD" kind="embed" id="qz8-rp-All"/>
-                                </connections>
-                            </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVf-wC-QVp">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="gfM-SB-mnw"/>
@@ -34,15 +28,30 @@
                                     <action selector="onButtonClicked:" destination="2" eventType="touchUpInside" id="9G3-wb-M4q"/>
                                 </connections>
                             </button>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sWG-5s-9yo">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="FT5-5e-SpD" kind="embed" id="qz8-rp-All"/>
+                                </connections>
+                            </containerView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCh-oi-Ukg">
+                                <color key="backgroundColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                                <items>
+                                    <navigationItem title="104人力銀行" id="R0k-HP-Um7"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="sWG-5s-9yo" secondAttribute="bottom" constant="315" id="GCc-23-fJz"/>
+                            <constraint firstItem="XCh-oi-Ukg" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Fh4-4d-Uzc"/>
+                            <constraint firstItem="sWG-5s-9yo" firstAttribute="top" secondItem="XCh-oi-Ukg" secondAttribute="bottom" type="default" id="IFu-wt-lta"/>
                             <constraint firstAttribute="trailing" secondItem="YVf-wC-QVp" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="PL7-IN-ceP"/>
-                            <constraint firstItem="sWG-5s-9yo" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="RlL-Pf-PbP"/>
+                            <constraint firstItem="XCh-oi-Ukg" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="cGw-32-sNf"/>
+                            <constraint firstAttribute="bottom" secondItem="sWG-5s-9yo" secondAttribute="bottom" constant="228" id="ij6-ND-nWQ"/>
                             <constraint firstItem="YVf-wC-QVp" firstAttribute="top" secondItem="3" secondAttribute="top" constant="240" id="lbg-ye-MQm"/>
                             <constraint firstItem="YVf-wC-QVp" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="t4M-O5-wbe"/>
                             <constraint firstItem="sWG-5s-9yo" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="v0j-hZ-lRQ"/>
+                            <constraint firstItem="XCh-oi-Ukg" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="wOR-63-8hg"/>
                             <constraint firstItem="sWG-5s-9yo" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="yen-JB-0VA"/>
                         </constraints>
                     </view>
@@ -59,7 +68,7 @@
             <objects>
                 <viewController id="FT5-5e-SpD" customClass="AutoCompleteViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9X4-JX-FLP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="233"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="276"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ub6-JB-3px">
@@ -72,7 +81,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cPr-DQ-fZK">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="183" id="Ifn-lk-foy"/>
+                                    <constraint firstAttribute="height" constant="224" id="mx5-c7-ECk"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="FT5-5e-SpD" id="3Ko-4X-0aU"/>
@@ -83,8 +92,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ub6-JB-3px" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="7T4-lF-Hmc"/>
+                            <constraint firstItem="cPr-DQ-fZK" firstAttribute="top" secondItem="Ub6-JB-3px" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8TY-Cb-3gH"/>
                             <constraint firstAttribute="trailing" secondItem="cPr-DQ-fZK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="HRn-WD-Zyf"/>
-                            <constraint firstItem="cPr-DQ-fZK" firstAttribute="top" secondItem="9X4-JX-FLP" secondAttribute="top" constant="52" id="Ie2-Oi-2dj"/>
                             <constraint firstItem="Ub6-JB-3px" firstAttribute="top" secondItem="9X4-JX-FLP" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Tts-pF-L98"/>
                             <constraint firstItem="cPr-DQ-fZK" firstAttribute="leading" secondItem="9X4-JX-FLP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WnA-87-vOQ"/>
                             <constraint firstItem="Ub6-JB-3px" firstAttribute="leading" secondItem="9X4-JX-FLP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="umM-99-haD"/>

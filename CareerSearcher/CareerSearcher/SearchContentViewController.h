@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SearchContentDelegate <NSObject>
+
+- (void) onItemSelected:(NSData*)data :(int)index;
+
+@end
+
 @interface SearchContentViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 - (id)initWithString:(NSString*)str :(NSString*)index;
@@ -15,6 +21,8 @@
 @property (strong, nonatomic) NSMutableArray *mListData;
 @property (strong, nonatomic) NSMutableArray *mJobDetailArr;
 @property (strong, nonatomic) NSData *data;
+
+@property (assign, nonatomic) id<SearchContentDelegate> mDelegate;
 
 @property (assign, nonatomic) NSString* jobIndex;
 

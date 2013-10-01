@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "EditStringViewController.h"
+#import "SearchContentViewController.h"
 
-@interface ResultViewController : UIViewController <UIScrollViewDelegate, EditStringDelegate>
+@interface ResultViewController : UIViewController <UIScrollViewDelegate, EditStringDelegate, SearchContentDelegate>
 
 @property (assign, nonatomic) int mTabNum;
 @property (assign, nonatomic) NSString* stringFromHomePage;
@@ -26,3 +27,4 @@
 - (IBAction)onNextButtonClicked:(id)sender;
 
 @end
+
