@@ -10,4 +10,11 @@
 
 @interface JobDetailViewController : UIViewController
 
+@property (assign, nonatomic) NSArray *jobList;
+@property (assign, nonatomic) NSDictionary *data;
+@property (strong, nonatomic) IBOutlet UINavigationBar *mTitleBar;
+@property (strong, nonatomic) IBOutlet UILabel *mTitleLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *mImageVIew;
+@property (strong, nonatomic) IBOutlet UILabel *mContentLabel;
+
 @end

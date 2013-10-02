@@ -23,6 +23,7 @@
 
 CGPoint startPoint;
 int selectedItem;
+int releasePlace;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -171,24 +172,47 @@ int selectedItem;
         startPoint.x += point.x;
         startPoint.y += point.y;
         
+        releasePlace = [self getReleaseIndex:startPoint.y];
+        NSLog(@"release at: %d", releasePlace);
+        
         [self arrangeLabel];
     }
+}
+
+- (int) getReleaseIndex:(int)y {
+    return (y-120)/30;
 }
 
 - (void) arrangeLabel {
     NSLog(@"re-arrange");
     
-    UILabel *label = 
+    NSString *temp = [mLabelArray objectAtIndex:selectedItem];
+    if (selectedItem < releasePlace) {
+        for (int i = selectedItem; i < releasePlace-1; i++) {
+            [mLabelArray replaceObjectAtIndex:i withObject:[mLabelArray objectAtIndex:i+1]];
+            NSLog(@"%d <= %d", i, i+1);
+        }
+        [mLabelArray replaceObjectAtIndex:releasePlace-1 withObject:temp];
+        NSLog(@"%d <= %d", releasePlace-1, selectedItem);
+    } else if (selectedItem > releasePlace) {
+        for (int i = selectedItem ; i > releasePlace ; i--) {
+            [mLabelArray replaceObjectAtIndex:i withObject:[mLabelArray objectAtIndex:i-1]];
+            NSLog(@"%d <= %d", i, i-1);
+        }
+        [mLabelArray replaceObjectAtIndex:releasePlace withObject:temp];
+        NSLog(@"%d <= %d", releasePlace, selectedItem);
+    }
     
     for (int i = 0 ; i < 4 ; i++) {
         UILabel *label = [mLabelArray objectAtIndex:i];
-        label.center = CGPointMake(60, 120 + 50*i);
+        label.center = CGPointMake(60, 120 + 30*i);
     }
     
-    //[self setText];
+    [self setText];
 }
 
 - (void) setText {
+    NSLog(@"set text");
     for (int i = 0 ; i < 4 ; i++) {
         UILabel *label = [mLabelArray objectAtIndex:i];
         

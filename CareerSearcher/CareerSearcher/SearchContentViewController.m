@@ -16,6 +16,7 @@
 
 @synthesize mListData;
 @synthesize mJobDetailArr;
+@synthesize mLogoArr;
 @synthesize data;
 @synthesize jobIndex;
 @synthesize mDelegate;
@@ -39,6 +40,7 @@
     NSLog(@"search content view did load");
     mListData = [[NSMutableArray alloc] init];
     mJobDetailArr = [[NSMutableArray alloc] init];
+    mLogoArr = [[NSMutableArray alloc] init];
     NSString *myUrlString = [NSString stringWithFormat:@"http://54.251.103.118/MobileJobSearchAPI/JobCatAreaReturnJob.do?jobCat=%@&area=%@",jobIndex ,@"%E5%8F%B0%E5%8C%97%E5%B8%82"];
     //NSString *body =  [NSString stringWithFormat:@"jobCat=%@&area=%@", @"2002001012", @"%E5%8F%B0%E5%8C%97%E5%B8%82"];
     NSURL *myUrl = [NSURL URLWithString:myUrlString];
@@ -61,6 +63,7 @@
         NSLog(@"Item: %@", [item valueForKey:@"JOB"]);
         [mListData addObject:[item valueForKey:@"JOB"]];
         [mJobDetailArr addObject:[item valueForKey:@"DESCRIPTION"]];
+        [mLogoArr addObject:[item valueForKey:@"LOGO"]];
     }
     [_mTableView reloadData];
 }
@@ -90,7 +93,8 @@
     cell.textLabel.text = [mListData objectAtIndex:row];
     cell.detailTextLabel.text = [mJobDetailArr objectAtIndex:row];
     [cell.imageView setFrame:CGRectMake(0, 0, 30, 30)];
-    [cell.imageView setImage:[self imageFromColor:[UIColor blueColor]]];
+    //[cell.imageView setImage:[self imageFromColor:[UIColor blueColor]]];
+    [cell.imageView setImage:[self imageFromUrl:[mLogoArr objectAtIndex:row]]];
     
     cell.backgroundColor = [UIColor greenColor];
     
@@ -107,6 +111,13 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+- (UIImage*) imageFromUrl:(NSString*) str {
+    NSURL *url = [NSURL URLWithString:str];
+    NSData *image = [NSData dataWithContentsOfURL:url];
+    UIImage *img = [[UIImage alloc] initWithData:image];
+    return img;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *mTableView;
 @property (strong, nonatomic) NSMutableArray *mListData;
 @property (strong, nonatomic) NSMutableArray *mJobDetailArr;
+@property (strong, nonatomic) NSMutableArray *mLogoArr;
 @property (strong, nonatomic) NSData *data;
 
 @property (assign, nonatomic) id<SearchContentDelegate> mDelegate;

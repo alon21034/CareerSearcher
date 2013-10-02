@@ -250,6 +250,10 @@ const int PAGE_HEIGHT = 472;
     NSDictionary *item = [jobList objectAtIndex:index];
     
     JobDetailViewController *view = [[JobDetailViewController alloc] initWithNibName:@"JobDetailViewController" bundle:nil];
+    
+    view.data = item;
+    view.jobList = jobList;
+    
     [self presentViewController:view animated:YES completion:nil];
 }
 
