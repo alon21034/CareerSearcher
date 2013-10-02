@@ -22,6 +22,7 @@
 @synthesize mListData;
 
 CGPoint startPoint;
+int selectedItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -158,6 +159,7 @@ CGPoint startPoint;
         startPoint.y = sender.view.center.y;
         
         NSLog(@"%d", sender.view.tag);
+        selectedItem = sender.view.tag;
     }
     
     CGPoint point = [sender translationInView:sender.view];
@@ -176,25 +178,14 @@ CGPoint startPoint;
 - (void) arrangeLabel {
     NSLog(@"re-arrange");
     
-//    for (int i = 0 ; i < 4 ; i++) {
-//        for (int j = 0 ; j < 4 ; j++) {
-//            UILabel *label1 = [mLabelArray objectAtIndex:i];
-//            UILabel *label2 = [mLabelArray objectAtIndex:j];
-//            
-//            if (label1.center.x > label2.center.x) {
-//                NSString *temp = [mStringArray objectAtIndex:i];
-//                [mStringArray replaceObjectAtIndex:i withObject:[mStringArray objectAtIndex:j]];
-//                [mStringArray replaceObjectAtIndex:j withObject:temp];
-//            }
-//        }
-//    }
+    UILabel *label = 
     
     for (int i = 0 ; i < 4 ; i++) {
         UILabel *label = [mLabelArray objectAtIndex:i];
-        label.center = CGPointMake(60+90*i, 120);
+        label.center = CGPointMake(60, 120 + 50*i);
     }
     
-    [self setText];
+    //[self setText];
 }
 
 - (void) setText {
