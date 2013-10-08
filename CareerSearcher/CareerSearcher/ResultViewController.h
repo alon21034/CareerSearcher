@@ -12,6 +12,7 @@
 
 @interface ResultViewController : UIViewController <UIScrollViewDelegate, EditStringDelegate, SearchContentDelegate>
 
+- (IBAction)changePage:(id)sender;
 @property (assign, nonatomic) int mTabNum;
 @property (assign, nonatomic) NSString* stringFromHomePage;
 @property (assign, nonatomic) NSString* indexFromHomePage;

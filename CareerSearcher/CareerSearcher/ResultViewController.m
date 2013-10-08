@@ -105,7 +105,7 @@ const int PAGE_HEIGHT = 472;
     [self.view addSubview:lineView];
     
     
-    [self loadScrollViewWithPage:0 :[mSearchTermList objectAtIndex:0] :[mSearchIndexList objectAtIndex:0]];
+    [self loadScrollViewWithPage:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,14 +129,19 @@ const int PAGE_HEIGHT = 472;
 
 - (void) onTabButtonClicked:(UIButton*) sender {
     NSLog(@"tab button %d is pressed", sender.tag);
+    
+    [self gotoPage:YES];
 }
 
 #pragma mark ScrollViewDelegate
 
-- (void)loadScrollViewWithPage:(NSUInteger)page :(NSString*) str :(NSString*) index;
+- (void)loadScrollViewWithPage:(NSUInteger)page;
 {
     if (page >= mTabNum)
         return;
+    
+    NSString* str = [mSearchTermList objectAtIndex:page];
+    NSString* index = [mSearchIndexList objectAtIndex:page];
     
     // replace the placeholder if necessary
     SearchContentViewController *controller = [self.mControllerArray objectAtIndex:page];
@@ -169,18 +174,43 @@ const int PAGE_HEIGHT = 472;
     // switch the indicator when more than 50% of the previous/next page is visible
     CGFloat pageWidth = CGRectGetWidth(self.mScrollView.frame);
     NSUInteger page = floor((self.mScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    //    self.mPageControl.currentPage = page;
+    mPageControll.currentPage = page;
+    
+    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+    
+    [self gotoPage:YES];
+    
+    // a possible optimization would be to unload the views+controllers which are no longer visible
+}
+
+- (void)gotoPage:(BOOL)animated
+{
+    NSInteger page = self.mPageControll.currentPage;
+    
+    //[self highlightButton:page];
     
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
     if (page > 0)
-        [self loadScrollViewWithPage:page - 1 :[mSearchTermList objectAtIndex:page-1] :[mSearchIndexList objectAtIndex:page-1]];
+        [self loadScrollViewWithPage:page - 1];
     
-    [self loadScrollViewWithPage:page :[mSearchTermList objectAtIndex:page] :[mSearchIndexList objectAtIndex:page]];
+    [self loadScrollViewWithPage:page];
     
     if (page < mTabNum)
-        [self loadScrollViewWithPage:page + 1 :[mSearchTermList objectAtIndex:page+1] :[mSearchIndexList objectAtIndex:page+1]];
+        [self loadScrollViewWithPage:page + 1];
     
-    // a possible optimization would be to unload the views+controllers which are no longer visible
+	// update the scroll view to the appropriate page
+    CGRect bounds = self.mScrollView.bounds;
+    bounds.origin.x = PAGE_WIDTH * page;
+    bounds.origin.y = 0;
+    
+    lineView.frame = CGRectMake(PADDING + (PADDING + mTabButtonWidth) * page, BAR_HEIGHT + mTabButtonHeight, mTabButtonWidth, PADDING);
+    
+    [self.mScrollView scrollRectToVisible:bounds animated:animated];
+}
+
+
+- (IBAction)changePage:(id)sender {
+    [self gotoPage:YES];
 }
 
 - (IBAction)onNextButtonClicked:(id)sender {
@@ -268,8 +298,8 @@ const int PAGE_HEIGHT = 472;
                 CGRectMake(PADDING, BAR_HEIGHT + mTabButtonHeight, mTabButtonWidth, PADDING)];
     lineView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:lineView];
-
-    [self loadScrollViewWithPage:0 :[mSearchTermList objectAtIndex:0] :[mSearchIndexList objectAtIndex:0]];
+    
+    [self gotoPage:YES];
     
 }
 
@@ -288,6 +318,5 @@ const int PAGE_HEIGHT = 472;
     
     [self presentViewController:view animated:YES completion:nil];
 }
-
 
 @end
