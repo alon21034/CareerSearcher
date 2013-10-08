@@ -42,6 +42,9 @@
     UIImage *img = [[UIImage alloc] initWithData:image];
     _mImageVIew.image = img;
     
+    // set addr label
+    _mAddressLabel.text = [data valueForKey:@"JOB_ADDRESS"];
+    
     // set job detail
     _mContentLabel.numberOfLines = 40;
     _mContentLabel.text = [NSString stringWithFormat:
@@ -59,4 +62,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onBackButtonClicked:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

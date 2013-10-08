@@ -185,15 +185,45 @@ const int PAGE_HEIGHT = 472;
 
 - (IBAction)onNextButtonClicked:(id)sender {
     EditStringViewController *view = [[EditStringViewController alloc] initWithNibName:@"EditStringViewController" bundle:nil];
-    view.mStringArray = mSearchTermList;
+    
+    if([mSearchTermList objectAtIndex:0] != [NSNull null]) {
+        view.str1 = [mSearchTermList objectAtIndex:0];
+    } else {
+        view.str1 = @"";
+    }
+    if([mSearchTermList objectAtIndex:1] != [NSNull null]) {
+        view.str2 = [mSearchTermList objectAtIndex:1];
+    } else {
+        view.str2 = @"";
+    }
+    if([mSearchTermList objectAtIndex:2] != [NSNull null]) {
+        view.str3 = [mSearchTermList objectAtIndex:2];
+    } else {
+        view.str3 = @"";
+    }
+    if([mSearchTermList objectAtIndex:3] != [NSNull null]) {
+        view.str4 = [mSearchTermList objectAtIndex:3];
+    } else {
+        view.str4 = @"";
+    }
+    
+    view.index1 = [mSearchIndexList objectAtIndex:0];
+    view.index2 = [mSearchIndexList objectAtIndex:1];
+    view.index3 = [mSearchIndexList objectAtIndex:2];
+    view.index4 = [mSearchIndexList objectAtIndex:3];
+    
     view.mDelegate = self;
     [self presentViewController:view animated:YES completion:nil];
 }
 
-- (void) onFinished:(NSMutableArray *)arr {
+- (void) onFinished:(NSMutableArray *)arr :(NSMutableArray*) indexList{
     mTabNum = 0;
     for (int i = 0 ; i < arr.count ; i++) {
+        if ([[arr objectAtIndex:i] length] == 0) {
+            [arr replaceObjectAtIndex:i withObject:[NSNull null]];
+        }
         [mSearchTermList replaceObjectAtIndex:i withObject:[arr objectAtIndex:i]];
+        [mSearchIndexList replaceObjectAtIndex:i withObject:[indexList objectAtIndex:i]];
         if ([mSearchTermList objectAtIndex:i] != [NSNull null])
             mTabNum++;
     }
@@ -239,6 +269,8 @@ const int PAGE_HEIGHT = 472;
     lineView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:lineView];
 
+    [self loadScrollViewWithPage:0 :[mSearchTermList objectAtIndex:0] :[mSearchIndexList objectAtIndex:0]];
+    
 }
 
 #pragma mark SearchContentDelegate

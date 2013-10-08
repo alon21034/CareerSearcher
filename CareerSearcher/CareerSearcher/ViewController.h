@@ -10,7 +10,7 @@
 
 #import "AutoCompleteViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<AutoCompleteViewDelegate>
 
 @property (strong, nonatomic) AutoCompleteViewController *vc;
 @property (strong, nonatomic) IBOutlet UIButton *mButton;

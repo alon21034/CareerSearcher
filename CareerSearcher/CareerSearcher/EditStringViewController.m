@@ -20,6 +20,9 @@
 @synthesize mTextField;
 @synthesize mTableView;
 @synthesize mListData;
+@synthesize mIndexArray;
+@synthesize mItemIndex;
+@synthesize mIndexData;
 
 CGPoint startPoint;
 int selectedItem;
@@ -37,34 +40,22 @@ int releasePlace;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    if (mStringArray == nil) {
-        NSLog(@"arr is null");
-    }
-
-    mTableView.hidden = YES;
-
-    mLabelArray = [[NSMutableArray alloc] init];
-    [mLabelArray addObject:_mLabel1];
-    [mLabelArray addObject:_mLabel2];
-    [mLabelArray addObject:_mLabel3];
-    [mLabelArray addObject:_mLabel4];
+    mStringArray = [[NSMutableArray alloc] init];
+    [mStringArray addObject:_str1];
+    [mStringArray addObject:_str2];
+    [mStringArray addObject:_str3];
+    [mStringArray addObject:_str4];
     
-    _mLabel1.tag = 0;
-    _mLabel2.tag = 1;
-    _mLabel3.tag = 2;
-    _mLabel4.tag = 3;
-
-    _mLabel1.numberOfLines = 2;
+    mIndexArray = [[NSMutableArray alloc] init];
+    [mIndexArray addObject:_index1];
+    [mIndexArray addObject:_index2];
+    [mIndexArray addObject:_index3];
+    [mIndexArray addObject:_index4];
     
-    for (int i = 0 ; i < 1 ; i++) {
-        if ([mStringArray objectAtIndex:i] != nil) {
-            [[mLabelArray objectAtIndex:i] setText:[mStringArray objectAtIndex:i]];
-        }
-    }
-
-
+    [self arrangeLabel];
+    [self arrangeText];
+    [self setText];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,14 +64,142 @@ int releasePlace;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)onBackButtonClicked:(id)sender {
+- (void) moveLabel:(UIPanGestureRecognizer*) sender {
     
-    [mDelegate onFinished:mStringArray];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        startPoint.x = sender.view.center.x;
+        startPoint.y = sender.view.center.y;
+    }
+    
+    CGPoint point = [sender translationInView:sender.view];
+    
+    sender.view.center = CGPointMake(startPoint.x + point.x, startPoint.y + point.y);
+    
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        
+        startPoint.x += point.x;
+        startPoint.y += point.y;
+        
+        
+        [self arrangeText];
+        [self setText];
+        [self arrangeLabel];
+        
+    }
+}
+
+- (void) arrangeLabel {
+    [self setLabelLocation:_mLabel1 :20 :120];
+    [self setLabelLocation:_mLabel2 :100 :120];
+    [self setLabelLocation:_mLabel3 :180 :120];
+    [self setLabelLocation:_mLabel4 :260 :120];
+}
+
+- (void) setLabelLocation:(UILabel*)label :(float)x :(float)y {
+    label.center = CGPointMake(x, y);
+}
+
+- (void) arrangeText {
+    float arr[4];
+    int res[4] = {0,0,0,0};
+    
+    arr[0] = _mLabel1.center.x;
+    arr[1] = _mLabel2.center.x;
+    arr[2] = _mLabel3.center.x;
+    arr[3] = _mLabel4.center.x;
+    
+    res[0] = 0;
+    
+    for (int i = 0 ; i < 4 ; i++) {
+        if (i == 0) {
+            res[0] = 0;
+        } else {
+            res[i] = 0;
+            for (int j = 0 ; j < i ; j++) {
+                if (arr[i] < arr[j]) {
+                    res[j]++;
+                } else {
+                    res[i]++;
+                }
+            }
+        }
+    }
+    
+    NSLog(@"%f %f %f %f", arr[0], arr[1], arr[2], arr[3]);
+    NSLog(@"%d %d %d %d", res[0], res[1], res[2], res[3]);
+    
+    NSString* a = [mStringArray objectAtIndex:0];
+    NSString* b = [mStringArray objectAtIndex:1];
+    NSString* c = [mStringArray objectAtIndex:2];
+    NSString* d = [mStringArray objectAtIndex:3];
+    
+    [mStringArray replaceObjectAtIndex:res[0] withObject:a];
+    [mStringArray replaceObjectAtIndex:res[1] withObject:b];
+    [mStringArray replaceObjectAtIndex:res[2] withObject:c];
+    [mStringArray replaceObjectAtIndex:res[3] withObject:d];
+    
+    a = [mIndexArray objectAtIndex:0];
+    b = [mIndexArray objectAtIndex:1];
+    c = [mIndexArray objectAtIndex:2];
+    d = [mIndexArray objectAtIndex:3];
+    
+    [mIndexArray replaceObjectAtIndex:res[0] withObject:a];
+    [mIndexArray replaceObjectAtIndex:res[1] withObject:b];
+    [mIndexArray replaceObjectAtIndex:res[2] withObject:c];
+    [mIndexArray replaceObjectAtIndex:res[3] withObject:d];
+    
+}
+
+- (void) setText {
+    [self setLabelText:_mLabel1 :0];
+    [self setLabelText:_mLabel2 :1];
+    [self setLabelText:_mLabel3 :2];
+    [self setLabelText:_mLabel4 :3];
+}
+
+- (void) setLabelText :(UILabel*)label :(int)index {
+    if ([[mStringArray objectAtIndex:index] length] != 0) {
+        NSLog(@"set text%d:%@", index, [mStringArray objectAtIndex:index]);
+        label.text = [mStringArray objectAtIndex:index];
+    }
+}
+
+- (void) addString:(NSString*)str :(NSString*) index {
+    for (int i = 0 ; i < 4 ; i++ ) {
+        if ([[mStringArray objectAtIndex:i] length] == 0) {
+            [mStringArray replaceObjectAtIndex:i withObject:str];
+            [mIndexArray replaceObjectAtIndex:i withObject:index];
+            break;
+        }
+    }
+    [self setText];
+}
+
+#pragma mark listeners
+
+- (IBAction)handlePan:(UIPanGestureRecognizer *)sender {
+    [self moveLabel:sender];
+}
+
+- (IBAction)handlePan2:(UIPanGestureRecognizer *)sender {
+    [self moveLabel:sender];
+}
+
+- (IBAction)handlePan3:(UIPanGestureRecognizer *)sender {
+    [self moveLabel:sender];
+}
+
+- (IBAction)handlePan4:(UIPanGestureRecognizer *)sender {
+    [self moveLabel:sender];
 }
 
 - (IBAction)onAddButtonClicked:(id)sender {
-    [self addString:mTextField.text];
+    [self addString:mTextField.text :mItemIndex];
+}
+
+- (IBAction)onBackButtonClicked:(id)sender {
+    [mDelegate onFinished:mStringArray :mIndexArray];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark TextField
@@ -106,6 +225,7 @@ int releasePlace;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
     
     mListData = dic.allKeys;
+    mIndexData = dic.allValues;
     [mTableView reloadData];
     
     if (mTextField.text.length == 0) {
@@ -119,112 +239,7 @@ int releasePlace;
         }
     }
     
-}
-
-
-- (IBAction)handlePan:(UIPanGestureRecognizer*)sender {
-    [self moveLabel:sender];
-}
-
-- (IBAction)handlePan2:(UIPanGestureRecognizer*)sender {
-    [self moveLabel:sender];
-}
-
-- (IBAction)handlePan3:(UIPanGestureRecognizer*)sender {
-    [self moveLabel:sender];
-}
-
-- (IBAction)handlePan4:(UIPanGestureRecognizer*)sender {
-    [self moveLabel:sender];
-}
-
-- (void) addString:(NSString*) str {
-    if ([mStringArray objectAtIndex:0] == [NSNull null]) {
-        _mLabel1.text = str;
-        [mStringArray replaceObjectAtIndex:0 withObject:str];
-    } else if ([mStringArray objectAtIndex:1] == [NSNull null]) {
-        _mLabel2.text = str;
-        [mStringArray replaceObjectAtIndex:1 withObject:str];
-    } else if ([mStringArray objectAtIndex:2] == [NSNull null]) {
-        _mLabel3.text = str;
-        [mStringArray replaceObjectAtIndex:2 withObject:str];
-    } else {
-        _mLabel4.text = str;
-        [mStringArray replaceObjectAtIndex:3 withObject:str];
-    }
-}
-
-- (void) moveLabel:(UIPanGestureRecognizer*) sender {
-    if (sender.state == UIGestureRecognizerStateBegan) {
-        startPoint.x = sender.view.center.x;
-        startPoint.y = sender.view.center.y;
-        
-        NSLog(@"%d", sender.view.tag);
-        selectedItem = sender.view.tag;
-    }
-    
-    CGPoint point = [sender translationInView:sender.view];
-    
-    sender.view.center = CGPointMake(startPoint.x + point.x, startPoint.y + point.y);
-    
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        
-        startPoint.x += point.x;
-        startPoint.y += point.y;
-        
-        releasePlace = [self getReleaseIndex:startPoint.y];
-        NSLog(@"release at: %d", releasePlace);
-        
-        [self arrangeLabel];
-    }
-}
-
-- (int) getReleaseIndex:(int)y {
-    return (y-120)/30;
-}
-
-- (void) arrangeLabel {
-    NSLog(@"re-arrange");
-    
-    NSString *temp = [mLabelArray objectAtIndex:selectedItem];
-    if (selectedItem < releasePlace) {
-        for (int i = selectedItem; i < releasePlace-1; i++) {
-            [mLabelArray replaceObjectAtIndex:i withObject:[mLabelArray objectAtIndex:i+1]];
-            NSLog(@"%d <= %d", i, i+1);
-        }
-        [mLabelArray replaceObjectAtIndex:releasePlace-1 withObject:temp];
-        NSLog(@"%d <= %d", releasePlace-1, selectedItem);
-    } else if (selectedItem > releasePlace) {
-        for (int i = selectedItem ; i > releasePlace ; i--) {
-            [mLabelArray replaceObjectAtIndex:i withObject:[mLabelArray objectAtIndex:i-1]];
-            NSLog(@"%d <= %d", i, i-1);
-        }
-        [mLabelArray replaceObjectAtIndex:releasePlace withObject:temp];
-        NSLog(@"%d <= %d", releasePlace, selectedItem);
-    }
-    
-    for (int i = 0 ; i < 4 ; i++) {
-        UILabel *label = [mLabelArray objectAtIndex:i];
-        label.center = CGPointMake(60, 120 + 30*i);
-    }
-    
-    [self setText];
-}
-
-- (void) setText {
-    NSLog(@"set text");
-    for (int i = 0 ; i < 4 ; i++) {
-        UILabel *label = [mLabelArray objectAtIndex:i];
-        
-        if ([mStringArray objectAtIndex:i] != [NSNull null]) {
-            label.text = [mStringArray objectAtIndex:i];
-            label.hidden = NO;
-        } else {
-            label.text = @"";
-            label.hidden = YES;
-        }
-        
-    }
+    [self arrangeLabel];
 }
 
 # pragma mark TableView
@@ -254,6 +269,7 @@ int releasePlace;
 {
     NSLog(@"%ld",(long)indexPath.row);
     [mTextField setText:[mListData objectAtIndex:indexPath.row]];
+    mItemIndex = [mIndexData objectAtIndex:indexPath.row];
     mTableView.hidden = YES;
 }
 

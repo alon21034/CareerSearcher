@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AutoCompleteViewDelegate <NSObject>
+
+- (void) isTableView:(BOOL) isShow;
+
+@end
+
 @interface AutoCompleteViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (assign, nonatomic) id<AutoCompleteViewDelegate> mDelegate;
 
 @property (strong, nonatomic) IBOutlet UITextField *mTextField;
 @property (strong, nonatomic) IBOutlet UITableView *mTableView;

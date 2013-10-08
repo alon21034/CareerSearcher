@@ -18,6 +18,8 @@
 @synthesize mTableView;
 @synthesize mListData;
 @synthesize mIndexData;
+@synthesize mDelegate;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +36,7 @@
 	// Do any additional setup after loading the view.
     
     mTableView.hidden = YES;
+    [mDelegate isTableView:(YES)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,8 +78,10 @@
     } else {
         if (mListData.count == 0) {
             mTableView.hidden = YES;
+            [mDelegate isTableView:YES];
         } else {
             mTableView.hidden = NO;
+            [mDelegate isTableView:NO];
         }
     }
     
@@ -127,6 +132,7 @@
     [mTextField setText:[mListData objectAtIndex:indexPath.row]];
     _jobIndex = [mIndexData objectAtIndex:indexPath.row];
     mTableView.hidden = YES;
+    [mDelegate isTableView:YES];
 }
 
 @end

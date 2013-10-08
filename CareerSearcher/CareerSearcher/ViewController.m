@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ResultViewController.h";
+#import "ResultViewController.h"
 
 @interface ViewController ()
 
@@ -26,6 +26,7 @@
     vc = [self.childViewControllers objectAtIndex:0];
 
     [vc setHint:@"job detail"];
+    vc.mDelegate = self;
     
 }
 
@@ -41,6 +42,11 @@
     view.stringFromHomePage = [vc getText];
     view.indexFromHomePage = [vc getIndex];
     [self presentViewController:view animated:YES completion:nil];
+}
+
+- (void) isTableView:(BOOL)isShow {
+    NSLog(@"is table view show");
+    mButton.hidden = !isShow;
 }
 
 @end
