@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ResultViewController.h"
+#import "MBProgressHUD.h"
 
 @interface ViewController ()
 
@@ -41,9 +42,21 @@
     view.mTabNum = 1;
     view.stringFromHomePage = [vc getText];
     view.indexFromHomePage = [vc getIndex];
-    [self presentViewController:view animated:YES completion:nil];
     
-    _mTabBar.tintColor = [UIColor greenColor];
+    if ([vc getIndex] == nil) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+        // Configure for text only and offset down
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"Please enter a job.";
+        hud.margin = 10.f;
+        hud.yOffset = 150.f;
+        hud.removeFromSuperViewOnHide = YES;
+    
+        [hud hide:YES afterDelay:3];
+    } else {
+        [self presentViewController:view animated:YES completion:nil];
+    }
 }
 
 - (void) isTableView:(BOOL)isShow {

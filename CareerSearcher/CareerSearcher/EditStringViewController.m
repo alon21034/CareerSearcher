@@ -198,8 +198,10 @@ int releasePlace;
     [self moveLabel:sender];
 }
 
+#pragma mark ButtonEvent
 - (IBAction)onAddButtonClicked:(id)sender {
-    [self addString:mTextField.text :mItemIndex];
+    if (mTextField.text.length > 0)
+        [self addString:mTextField.text :mItemIndex];
 }
 
 - (IBAction)onBackButtonClicked:(id)sender {
