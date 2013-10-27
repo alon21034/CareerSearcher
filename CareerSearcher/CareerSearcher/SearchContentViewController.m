@@ -66,6 +66,7 @@
         [mLogoArr addObject:[item valueForKey:@"LOGO"]];
     }
     [_mTableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning

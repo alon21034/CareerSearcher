@@ -7,6 +7,7 @@
 //
 
 #import "EditStringViewController.h"
+#import "MBProgressHUD.h"
 
 @interface EditStringViewController ()
 
@@ -200,8 +201,28 @@ int releasePlace;
 
 #pragma mark ButtonEvent
 - (IBAction)onAddButtonClicked:(id)sender {
-    if (mTextField.text.length > 0)
+    if (mTextField.text.length > 0) {
+        for (int i = 0 ; i < 4 ; ++i ) {
+            if ([mTextField.text isEqualToString:[mStringArray objectAtIndex:i]]) {
+                
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                
+                // Configure for text only and offset down
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = [NSString stringWithFormat:@"%@ is already in the search list", mTextField.text];
+                hud.margin = 10.f;
+                hud.yOffset = 150.f;
+                hud.removeFromSuperViewOnHide = YES;
+                
+                [hud hide:YES afterDelay:2];
+                
+                return;
+            }
+        }
+        
         [self addString:mTextField.text :mItemIndex];
+        
+    }
 }
 
 - (IBAction)onBackButtonClicked:(id)sender {
