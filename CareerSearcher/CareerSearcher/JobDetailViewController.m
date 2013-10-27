@@ -7,6 +7,7 @@
 //
 
 #import "JobDetailViewController.h"
+#import "JobContentViewController.h"
 
 @interface JobDetailViewController ()
 
@@ -16,6 +17,7 @@
 
 @synthesize jobList;
 @synthesize data;
+@synthesize mScrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,31 +31,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    // set title
-    _mTitleBar.topItem.title = [data valueForKey:@"JOB"];
-    _mTitleLabel.text = [data valueForKey:@"DESCRIPTION"];
+    JobContentViewController *view = [[JobContentViewController alloc]initWithNibName:@"JobContentViewController" bundle:nil];
     
-    // set logo Image
-    NSURL *url = [NSURL URLWithString:[data valueForKey:@"LOGO"]];
-    NSLog(@"logo: %@", [data valueForKey:@"LOGO"]);
-    NSData *image = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc] initWithData:image];
-    _mImageVIew.image = img;
+    view.jobTitle = [data valueForKey:@"JOB"];
+    view.jobName = [data valueForKey:@"NAME"];
+    view.jobcatDescript = [data valueForKey:@"JOBCAT_DESCRIPT"];
+    view.jobAddress = [data valueForKey:@"JOB_ADDRESS"];
+    view.description = [data valueForKey:@"DESCRIPTION"];
+    view.sal = [data valueForKey:@"SAL"];
+    view.needEmp = [data valueForKey:@"NEED_EMP"];
+    view.worktime = [data valueForKey:@"WORKTIME"];
+    view.role = [data valueForKey:@"ROLE"];
     
-    // set addr label
-    _mAddressLabel.text = [data valueForKey:@"JOB_ADDRESS"];
-    
-    // set job detail
-    _mContentLabel.numberOfLines = 40;
-    _mContentLabel.text = [NSString stringWithFormat:
-        @"職務類別: %@\n\n工作待遇: %@\n\n工作性質: %@\n\n上班時段: %@\n\n需求人數: %@",
-                           [data valueForKey:@"JOBCAT_DESCRIPT"],
-                           [data valueForKey:@"SAL"],
-                           [data valueForKey:@"ROLE"],
-                           [data valueForKey:@"WORKTIME"],
-                           [data valueForKey:@"NEED_EMP"]];
+    [mScrollView addSubview:view.view];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,4 +56,5 @@
 - (IBAction)onBackButtonClicked:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 @end

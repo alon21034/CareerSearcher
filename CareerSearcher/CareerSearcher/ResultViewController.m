@@ -101,7 +101,7 @@ const int PAGE_HEIGHT = 472;
     // bottom line
     lineView = [[UIView alloc] initWithFrame:
                 CGRectMake(PADDING, BAR_HEIGHT + mTabButtonHeight, mTabButtonWidth, PADDING)];
-    lineView.backgroundColor = [UIColor blackColor];
+    lineView.backgroundColor = [UIColor blueColor];
     [self.view addSubview:lineView];
     
     
@@ -296,7 +296,7 @@ const int PAGE_HEIGHT = 472;
     // bottom line
     lineView = [[UIView alloc] initWithFrame:
                 CGRectMake(PADDING, BAR_HEIGHT + mTabButtonHeight, mTabButtonWidth, PADDING)];
-    lineView.backgroundColor = [UIColor blackColor];
+    lineView.backgroundColor = [UIColor blueColor];
     [self.view addSubview:lineView];
     
     [self gotoPage:YES];

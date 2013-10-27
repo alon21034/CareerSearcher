@@ -42,6 +42,8 @@
     view.stringFromHomePage = [vc getText];
     view.indexFromHomePage = [vc getIndex];
     [self presentViewController:view animated:YES completion:nil];
+    
+    _mTabBar.tintColor = [UIColor greenColor];
 }
 
 - (void) isTableView:(BOOL)isShow {

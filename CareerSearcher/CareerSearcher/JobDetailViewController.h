@@ -12,12 +12,7 @@
 
 @property (assign, nonatomic) NSArray *jobList;
 @property (assign, nonatomic) NSDictionary *data;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *mBackButton;
 - (IBAction)onBackButtonClicked:(id)sender;
-@property (strong, nonatomic) IBOutlet UINavigationBar *mTitleBar;
-@property (strong, nonatomic) IBOutlet UILabel *mTitleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *mAddressLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *mImageVIew;
-@property (strong, nonatomic) IBOutlet UILabel *mContentLabel;
+@property (strong, nonatomic) IBOutlet UIScrollView *mScrollView;
 
 @end

@@ -56,6 +56,8 @@ int releasePlace;
     [self arrangeLabel];
     [self arrangeText];
     [self setText];
+    
+    mTableView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -161,6 +163,9 @@ int releasePlace;
     if ([[mStringArray objectAtIndex:index] length] != 0) {
         NSLog(@"set text%d:%@", index, [mStringArray objectAtIndex:index]);
         label.text = [mStringArray objectAtIndex:index];
+        label.hidden = NO;
+    } else {
+        label.hidden = YES;
     }
 }
 

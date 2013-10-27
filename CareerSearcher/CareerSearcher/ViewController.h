@@ -15,5 +15,6 @@
 @property (strong, nonatomic) AutoCompleteViewController *vc;
 @property (strong, nonatomic) IBOutlet UIButton *mButton;
 - (IBAction)onButtonClicked:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationBar *mTabBar;
 
 @end

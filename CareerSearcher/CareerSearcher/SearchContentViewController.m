@@ -94,10 +94,36 @@
     cell.detailTextLabel.text = [mJobDetailArr objectAtIndex:row];
     [cell.imageView setFrame:CGRectMake(0, 0, 30, 30)];
     //[cell.imageView setImage:[self imageFromColor:[UIColor blueColor]]];
-    [cell.imageView setImage:[self imageFromUrl:[mLogoArr objectAtIndex:row]]];
+    cell.imageView.clipsToBounds = YES;
     
-    cell.backgroundColor = [UIColor greenColor];
-    
+    if ([[mLogoArr objectAtIndex:row] length] <= 10) {
+        
+        unsigned r, g, b;
+        
+        NSString *str = [mLogoArr objectAtIndex:row];
+        NSString *red = [str substringWithRange:NSMakeRange(0, 2)];
+        NSString *green = [str substringWithRange:NSMakeRange(2, 2)];
+        NSString *blue = [str substringWithRange:NSMakeRange(4, 2)];
+        NSScanner *scanner = [NSScanner scannerWithString:red];
+        [scanner setScanLocation:0]; // bypass '#' character
+        [scanner scanHexInt:&r];
+        scanner = [NSScanner scannerWithString:green];
+        [scanner setScanLocation:0];
+        [scanner scanHexInt:&g];
+        scanner = [NSScanner scannerWithString:blue];
+        [scanner setScanLocation:0];
+        [scanner scanHexInt:&b];
+        
+        UIColor *color = [UIColor colorWithRed:(float)r/255.0f green:(float)g/255.0f blue:(float)b/255.0f alpha:1.0f];
+        [cell.imageView setImage:[self imageFromColor:color]];
+
+    } else {
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit & UIViewContentModeCenter;
+        cell.imageView.clipsToBounds = YES;
+        [cell.imageView setImage:[self imageFromUrl:[mLogoArr objectAtIndex:row]]];
+        
+        
+    }
     
     return cell;
 }

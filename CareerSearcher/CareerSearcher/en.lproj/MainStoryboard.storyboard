@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sWG-5s-9yo">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.88235300780000003" green="0.89411771299999998" blue="0.85098046059999999" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <segue destination="FT5-5e-SpD" kind="embed" id="qz8-rp-All"/>
                                 </connections>
@@ -35,13 +35,14 @@
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCh-oi-Ukg">
-                                <color key="backgroundColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.73725491762161255" green="0.84705889225006104" blue="0.55686277151107788" alpha="1" colorSpace="deviceRGB"/>
                                 <items>
-                                    <navigationItem title="104人力銀行" id="R0k-HP-Um7"/>
+                                    <navigationItem title="104人力銀行" id="R0k-HP-Um7" propertyAccessControl="none"/>
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.88235300779342651" green="0.89411771297454834" blue="0.85098046064376831" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="XCh-oi-Ukg" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Fh4-4d-Uzc"/>
                             <constraint firstItem="YVf-wC-QVp" firstAttribute="top" secondItem="3" secondAttribute="top" constant="150" id="GCi-Ew-ToE"/>
@@ -57,6 +58,7 @@
                     </view>
                     <connections>
                         <outlet property="mButton" destination="YVf-wC-QVp" id="di0-fT-KdC"/>
+                        <outlet property="mTabBar" destination="XCh-oi-Ukg" id="u0h-sm-Hni"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -89,7 +91,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.88235300780000003" green="0.89411771299999998" blue="0.85098046059999999" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ub6-JB-3px" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="7T4-lF-Hmc"/>
                             <constraint firstItem="cPr-DQ-fZK" firstAttribute="top" secondItem="Ub6-JB-3px" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8TY-Cb-3gH"/>
@@ -127,6 +129,7 @@
             <relationships>
                 <relationship kind="action" name="onButtonClicked:"/>
                 <relationship kind="outlet" name="mButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mTabBar" candidateClass="UINavigationBar"/>
             </relationships>
         </class>
     </classes>
